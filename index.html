@@ -7,1607 +7,370 @@
 <meta name="description" content="Ritesh Indore. SOC Analyst, MSc Cybersecurity at NCI Dublin. CompTIA Security+ certified. Specializing in SIEM, threat detection, and cloud security.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #ffffff;
-    --bg-soft: #f6f9fd;
-    --bg-muted: #eef3fa;
-    --primary: #0a4dd6;
-    --primary-dark: #0838a8;
-    --primary-light: #e8f0ff;
-    --primary-hover: #0a3fb2;
-    --accent: #2563eb;
-    --text: #0a1f44;
-    --text-body: #334666;
-    --text-muted: #697892;
-    --border: #e3e9f2;
-    --border-strong: #c9d5e8;
-    --success: #0a8f5f;
-    --linkedin: #0a66c2;
-    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --serif: 'Fraunces', Georgia, serif;
-    --mono: 'JetBrains Mono', ui-monospace, monospace;
-    --shadow-sm: 0 1px 2px rgba(10, 31, 68, 0.04);
-    --shadow: 0 4px 16px rgba(10, 31, 68, 0.06);
-    --shadow-lg: 0 16px 48px rgba(10, 31, 68, 0.08);
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--sans);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-
-  a { color: inherit; text-decoration: none; }
-  button { font-family: inherit; cursor: pointer; }
-
-  /* ================ NAV ================ */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: saturate(180%) blur(14px);
-    -webkit-backdrop-filter: saturate(180%) blur(14px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1.1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-weight: 700;
-    font-size: 15px;
-    color: var(--text);
-    letter-spacing: -0.01em;
-  }
-  .logo-mark {
-    width: 34px; height: 34px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: -0.02em;
-    box-shadow: 0 4px 12px rgba(10, 77, 214, 0.25);
-  }
-  .logo-sub {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-muted);
-    font-weight: 400;
-  }
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-  .nav-links a {
-    color: var(--text-body);
-    font-size: 14px;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--primary); }
-  .nav-cta {
-    background: var(--primary);
-    color: #fff;
-    padding: 0.55rem 1.1rem;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 600;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .nav-cta:hover { background: var(--primary-hover); transform: translateY(-1px); }
-
-  /* ================ HERO ================ */
-  .hero {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 5.5rem 2rem 5rem;
-    position: relative;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0;
-    width: 560px; height: 560px;
-    background: radial-gradient(circle at center, rgba(10, 77, 214, 0.08) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: -1;
-  }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1.25fr 1fr;
-    gap: 4.5rem;
-    align-items: center;
-  }
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 7px 14px;
-    background: var(--primary-light);
-    border: 1px solid rgba(10, 77, 214, 0.15);
-    border-radius: 999px;
-    font-size: 12.5px;
-    font-weight: 600;
-    color: var(--primary);
-    margin-bottom: 1.75rem;
-    letter-spacing: 0.01em;
-  }
-  .eyebrow .dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--success);
-    animation: pulse 2s ease-out infinite;
-  }
-  @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(10, 143, 95, 0.5); }
-    70% { box-shadow: 0 0 0 8px rgba(10, 143, 95, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(10, 143, 95, 0); }
-  }
-
-  h1 {
-    font-size: clamp(2.5rem, 5.2vw, 4.2rem);
-    font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: -0.035em;
-    color: var(--text);
-    margin-bottom: 1.75rem;
-  }
-  h1 .serif {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-style: italic;
-    color: var(--primary);
-  }
-
-  .hero-desc {
-    font-size: 17px;
-    line-height: 1.7;
-    color: var(--text-body);
-    margin-bottom: 2.25rem;
-    max-width: 560px;
-  }
-  .hero-desc strong { color: var(--text); font-weight: 600; }
-
-  .hero-cta {
-    display: flex;
-    gap: 0.85rem;
-    flex-wrap: wrap;
-    margin-bottom: 2.75rem;
-  }
-  .btn {
-    padding: 0.9rem 1.75rem;
-    border-radius: 10px;
-    font-size: 14.5px;
-    font-weight: 600;
-    transition: all 0.2s;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid transparent;
-  }
-  .btn-primary {
-    background: var(--primary);
-    color: #fff;
-    box-shadow: 0 4px 14px rgba(10, 77, 214, 0.25);
-  }
-  .btn-primary:hover {
-    background: var(--primary-hover);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(10, 77, 214, 0.3);
-  }
-  .btn-secondary {
-    background: #fff;
-    color: var(--text);
-    border-color: var(--border-strong);
-  }
-  .btn-secondary:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-    transform: translateY(-1px);
-  }
-
-  .hero-trust {
-    display: flex;
-    gap: 2.25rem;
-    flex-wrap: wrap;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-  }
-  .trust-item { display: flex; flex-direction: column; gap: 3px; }
-  .trust-value {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--text);
-    letter-spacing: -0.01em;
-  }
-  .trust-value .accent { color: var(--primary); }
-  .trust-label { font-size: 12px; color: var(--text-muted); font-weight: 500; }
-
-  /* Hero profile card */
-  .hero-card {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 2rem;
-    box-shadow: var(--shadow-lg);
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary), var(--accent));
-  }
-  .profile-photo-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0.5rem 0 1.25rem;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 1.25rem;
-  }
-  .profile-photo {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #fff;
-    box-shadow: 0 0 0 3px var(--primary-light), 0 8px 24px rgba(10, 77, 214, 0.15);
-    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }
-  .profile-photo-name {
-    margin-top: 0.9rem;
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--text);
-    letter-spacing: -0.01em;
-  }
-  .profile-photo-title {
-    font-size: 12.5px;
-    color: var(--text-muted);
-    margin-top: 2px;
-  }
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 1.25rem;
-    margin-bottom: 1.25rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .card-header-left {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-  .card-badge {
-    background: rgba(10, 143, 95, 0.1);
-    color: var(--success);
-    padding: 4px 10px;
-    border-radius: 999px;
-    font-size: 11px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .card-badge .dot {
-    width: 6px; height: 6px;
-    background: var(--success);
-    border-radius: 50%;
-  }
-  .profile-row {
-    display: grid;
-    grid-template-columns: 110px 1fr;
-    padding: 11px 0;
-    border-bottom: 1px dashed var(--border);
-    gap: 12px;
-    font-size: 13.5px;
-  }
-  .profile-row:last-of-type { border-bottom: none; }
-  .profile-row .k {
-    color: var(--text-muted);
-    font-weight: 500;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-  .profile-row .v { color: var(--text); font-weight: 500; }
-  .profile-row .v .chip {
-    display: inline-block;
-    background: var(--primary-light);
-    color: var(--primary);
-    padding: 2px 9px;
-    border-radius: 5px;
-    font-size: 11px;
-    font-weight: 600;
-    margin-right: 4px;
-  }
-
-  /* ================ SECTIONS ================ */
-  section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 5.5rem 2rem;
-  }
-  .section-soft { background: var(--bg-soft); max-width: none; padding: 0; }
-  .section-soft > .section-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 5.5rem 2rem;
-  }
-
-  .section-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--primary);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin-bottom: 1rem;
-  }
-  .section-label::before {
-    content: '';
-    width: 20px; height: 2px;
-    background: var(--primary);
-  }
-
-  h2 {
-    font-size: clamp(1.9rem, 3.5vw, 2.75rem);
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    line-height: 1.15;
-    color: var(--text);
-    margin-bottom: 1rem;
-    max-width: 680px;
-  }
-  h2 .serif {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-style: italic;
-    color: var(--primary);
-  }
-  .section-lead {
-    font-size: 16px;
-    color: var(--text-body);
-    max-width: 620px;
-    margin-bottom: 3.5rem;
-    line-height: 1.65;
-  }
-
-  /* ================ ABOUT ================ */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 4rem;
-    align-items: start;
-  }
-  .about-text p {
-    color: var(--text-body);
-    font-size: 15.5px;
-    line-height: 1.85;
-    margin-bottom: 1.25rem;
-  }
-  .about-text p strong { color: var(--text); font-weight: 600; }
-  .about-text .highlight {
-    background: linear-gradient(180deg, transparent 60%, rgba(10, 77, 214, 0.15) 60%);
-    padding: 0 2px;
-    color: var(--text);
-    font-weight: 600;
-  }
-
-  .highlights-card {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 2rem;
-    box-shadow: var(--shadow);
-  }
-  .highlights-card h3 {
-    font-size: 13px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-  }
-  .highlight-item {
-    display: flex;
-    gap: 14px;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .highlight-item:last-child { border-bottom: none; padding-bottom: 0; }
-  .highlight-item:first-child { padding-top: 0; }
-  .highlight-icon {
-    flex-shrink: 0;
-    width: 36px; height: 36px;
-    background: var(--primary-light);
-    color: var(--primary);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .highlight-title {
-    font-size: 14.5px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 2px;
-  }
-  .highlight-desc {
-    font-size: 12.5px;
-    color: var(--text-muted);
-    line-height: 1.5;
-  }
-
-  /* ================ VIDEO ================ */
-  .video-wrap {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 1rem;
-    box-shadow: var(--shadow);
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .video-frame {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border-radius: 12px;
-    overflow: hidden;
-    background: linear-gradient(135deg, #0a4dd6 0%, #1e5fdb 50%, #2563eb 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .video-frame video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .video-placeholder {
-    text-align: center;
-    color: #fff;
-    padding: 2rem;
-    position: relative;
-    z-index: 2;
-  }
-  .video-placeholder::before {
-    content: '';
-    position: absolute;
-    top: -100px; left: -100px;
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
-    z-index: -1;
-  }
-  .video-play-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.15);
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.25rem;
-    backdrop-filter: blur(8px);
-    transition: transform 0.3s;
-  }
-  .video-frame:hover .video-play-icon { transform: scale(1.05); }
-  .video-placeholder h3 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 8px;
-    letter-spacing: -0.01em;
-  }
-  .video-placeholder p {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
-    max-width: 380px;
-    margin: 0 auto;
-  }
-
-  /* ================ SKILLS ================ */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-  .skill-card {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 2rem;
-    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
-  }
-  .skill-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--primary-light);
-  }
-  .skill-card-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 1.25rem;
-  }
-  .skill-icon {
-    width: 42px; height: 42px;
-    border-radius: 10px;
-    background: var(--primary-light);
-    color: var(--primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .skill-card h3 {
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--text);
-  }
-  .skill-card p {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-bottom: 1.25rem;
-    line-height: 1.55;
-  }
-  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
-  .tag {
-    padding: 6px 12px;
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    color: var(--text-body);
-    font-size: 12.5px;
-    font-weight: 500;
-    border-radius: 6px;
-    transition: all 0.2s;
-  }
-  .tag:hover {
-    background: var(--primary-light);
-    border-color: rgba(10, 77, 214, 0.2);
-    color: var(--primary);
-  }
-
-  /* ================ LOGO STRIP ================ */
-  .logo-strip {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 2.5rem 2rem;
-    margin-top: 1rem;
-    box-shadow: var(--shadow-sm);
-  }
-  .logo-strip-title {
-    text-align: center;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin-bottom: 2rem;
-  }
-  .logo-row {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1.5rem;
-    align-items: center;
-  }
-  .logo-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 1rem 0.5rem;
-    border-radius: 10px;
-    transition: background 0.2s, transform 0.2s;
-  }
-  .logo-item:hover {
-    transform: translateY(-2px);
-    background: var(--bg-soft);
-  }
-  .logo-item img {
-    width: 42px;
-    height: 42px;
-    object-fit: contain;
-  }
-  .logo-item .logo-name {
-    font-size: 11.5px;
-    font-weight: 500;
-    color: var(--text-muted);
-    text-align: center;
-  }
-
-  /* ================ PROJECTS ================ */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 1.75rem;
-  }
-  .project {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
-    position: relative;
-    overflow: hidden;
-  }
-  .project::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 3px;
-    background: var(--primary);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s;
-  }
-  .project:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--primary-light);
-  }
-  .project:hover::before { transform: scaleX(1); }
-  .project-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    margin-bottom: 1.25rem;
-  }
-  .project-icon {
-    width: 44px; height: 44px;
-    background: var(--primary-light);
-    color: var(--primary);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .project-num {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-muted);
-    font-weight: 500;
-  }
-  .project h3 {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 0.6rem;
-    letter-spacing: -0.01em;
-  }
-  .project p {
-    font-size: 14px;
-    color: var(--text-body);
-    line-height: 1.65;
-    margin-bottom: 1.25rem;
-    flex: 1;
-  }
-  .project-stats {
-    display: flex;
-    gap: 1.25rem;
-    padding: 0.85rem 0;
-    margin-bottom: 1.25rem;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-  .pstat .val {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--primary);
-    line-height: 1;
-  }
-  .pstat .lbl {
-    font-size: 11px;
-    color: var(--text-muted);
-    margin-top: 3px;
-  }
-  .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 1.25rem;
-  }
-  .project-tag {
-    font-size: 11.5px;
-    padding: 4px 10px;
-    background: var(--primary-light);
-    color: var(--primary);
-    border-radius: 5px;
-    font-weight: 500;
-  }
-  .project-link {
-    color: var(--primary);
-    font-weight: 600;
-    font-size: 13.5px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: gap 0.2s;
-  }
-  .project-link:hover { gap: 10px; }
-
-  /* ================ EXPERIENCE ================ */
-  .exp-grid {
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 3rem;
-  }
-  .exp-item { display: contents; }
-  .exp-item + .exp-item .exp-date,
-  .exp-item + .exp-item .exp-body { margin-top: 2.5rem; }
-  .exp-date {
-    font-size: 13px;
-    color: var(--text-muted);
-    font-weight: 500;
-    padding-top: 4px;
-  }
-  .exp-date .current {
-    display: inline-block;
-    background: rgba(10, 143, 95, 0.1);
-    color: var(--success);
-    padding: 3px 10px;
-    border-radius: 999px;
-    font-size: 11px;
-    margin-top: 8px;
-    font-weight: 600;
-  }
-  .exp-body {
-    padding-left: 2rem;
-    border-left: 2px solid var(--border);
-    position: relative;
-  }
-  .exp-body::before {
-    content: '';
-    position: absolute;
-    left: -7px;
-    top: 6px;
-    width: 12px; height: 12px;
-    background: #fff;
-    border: 3px solid var(--primary);
-    border-radius: 50%;
-  }
-  .exp-body h3 {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 4px;
-    letter-spacing: -0.01em;
-  }
-  .exp-role {
-    color: var(--primary);
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 1rem;
-  }
-  .exp-role .sep { color: var(--text-muted); margin: 0 8px; }
-  .exp-body ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .exp-body li {
-    color: var(--text-body);
-    font-size: 14.5px;
-    line-height: 1.7;
-    padding-left: 1.5rem;
-    position: relative;
-  }
-  .exp-body li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 10px;
-    width: 7px; height: 7px;
-    background: var(--primary);
-    border-radius: 50%;
-  }
-
-  /* ================ CERTS ================ */
-  .certs-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-  }
-  .cert {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 1.5rem 1.75rem;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 1.25rem;
-    align-items: center;
-    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-  }
-  .cert:hover {
-    border-color: var(--primary-light);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow);
-  }
-  .cert-icon {
-    width: 48px; height: 48px;
-    border-radius: 10px;
-    background: var(--primary-light);
-    color: var(--primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-  .cert-info h3 {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 3px;
-  }
-  .cert-info p {
-    font-size: 12.5px;
-    color: var(--text-muted);
-  }
-  .cert-info .code {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--primary);
-    margin-top: 3px;
-    font-weight: 500;
-  }
-  .cert-status {
-    font-size: 11px;
-    padding: 5px 11px;
-    border-radius: 999px;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-  .cert-status.active {
-    background: rgba(10, 143, 95, 0.1);
-    color: var(--success);
-  }
-  .cert-status.prog {
-    background: rgba(10, 77, 214, 0.1);
-    color: var(--primary);
-  }
-
-  /* ================ LINKEDIN POSTS ================ */
-  .posts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5rem;
-  }
-  .post-card {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
-    position: relative;
-    overflow: hidden;
-  }
-  .post-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--primary-light);
-  }
-  .post-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 1.25rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .post-img-wrap {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-    background: var(--bg-soft);
-    position: relative;
-  }
-  .post-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s;
-  }
-  .post-card:hover .post-img-wrap img { transform: scale(1.03); }
-  .post-img-placeholder {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--primary-light) 0%, var(--bg-soft) 100%);
-    color: var(--text-muted);
-    gap: 8px;
-    font-size: 12px;
-    font-weight: 500;
-  }
-  .post-img-placeholder svg { opacity: 0.4; }
-  .post-body {
-    padding: 1.75rem;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-  .post-avatar {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--linkedin) 0%, #084d92 100%);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: -0.02em;
-    flex-shrink: 0;
-  }
-  .post-author { font-size: 14px; font-weight: 600; color: var(--text); }
-  .post-meta { font-size: 11.5px; color: var(--text-muted); margin-top: 2px; }
-  .post-meta .linkedin-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    color: var(--linkedin);
-    font-weight: 500;
-  }
-  .post-card h3 {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 0.75rem;
-    line-height: 1.4;
-    letter-spacing: -0.01em;
-  }
-  .post-card p {
-    font-size: 13.5px;
-    color: var(--text-body);
-    line-height: 1.65;
-    margin-bottom: 1.25rem;
-    flex: 1;
-  }
-  .post-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 1.25rem;
-  }
-  .post-tag {
-    font-size: 11.5px;
-    padding: 3px 10px;
-    background: var(--bg-soft);
-    color: var(--primary);
-    border-radius: 999px;
-    font-weight: 500;
-  }
-  .post-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border);
-  }
-  .post-footer .featured {
-    font-size: 11px;
-    color: var(--success);
-    font-weight: 600;
-    background: rgba(10, 143, 95, 0.1);
-    padding: 3px 9px;
-    border-radius: 999px;
-  }
-  .post-link {
-    color: var(--linkedin);
-    font-weight: 600;
-    font-size: 13px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: gap 0.2s;
-  }
-  .post-link:hover { gap: 10px; }
-
-  /* ================ CONTACT ================ */
-  .contact {
-    background: linear-gradient(135deg, var(--primary) 0%, #1e5fdb 100%);
-    border-radius: 20px;
-    padding: 4rem 3.5rem;
-    color: #fff;
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 4rem;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(10, 77, 214, 0.25);
-  }
-  .contact::before {
-    content: '';
-    position: absolute;
-    top: -100px; right: -100px;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .contact::after {
-    content: '';
-    position: absolute;
-    bottom: -150px; left: -150px;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .contact > * { position: relative; z-index: 1; }
-  .contact .eyebrow {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-  }
-  .contact h2 { color: #fff; margin-bottom: 1rem; }
-  .contact h2 .serif { color: #b8d0ff; }
-  .contact p {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 16px;
-    line-height: 1.7;
-    margin-bottom: 2rem;
-    max-width: 460px;
-  }
-  .contact .btn-primary {
-    background: #fff;
-    color: var(--primary);
-  }
-  .contact .btn-primary:hover { background: #f0f6ff; }
-
-  .contact-links { display: flex; flex-direction: column; gap: 0; }
-  .clink {
-    display: grid;
-    grid-template-columns: 40px 1fr auto;
-    gap: 14px;
-    align-items: center;
-    color: #fff;
-    padding: 1rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    font-size: 14px;
-    transition: padding-left 0.25s;
-  }
-  .clink:first-child { border-top: none; }
-  .clink:hover { padding-left: 8px; }
-  .clink-icon {
-    width: 40px; height: 40px;
-    background: rgba(255, 255, 255, 0.12);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-  }
-  .clink-text { display: flex; flex-direction: column; }
-  .clink-label {
-    font-size: 11px;
-    color: rgba(255, 255, 255, 0.65);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 2px;
-  }
-  .clink-value { color: #fff; font-weight: 500; }
-  .clink-arrow {
-    color: rgba(255, 255, 255, 0.6);
-    opacity: 0;
-    transition: opacity 0.2s, transform 0.2s;
-  }
-  .clink:hover .clink-arrow { opacity: 1; transform: translateX(4px); }
-
-  /* ================ FOOTER ================ */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 2.5rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    color: var(--text-muted);
-    font-size: 13px;
-  }
-  footer .right { display: flex; gap: 1.5rem; }
-  footer a:hover { color: var(--primary); }
-
-  /* ================ ANIMATIONS ================ */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .reveal { animation: fadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
-  .d1 { animation-delay: 0.08s; }
-  .d2 { animation-delay: 0.16s; }
-  .d3 { animation-delay: 0.24s; }
-  .d4 { animation-delay: 0.32s; }
-
-  /* ================ RESPONSIVE ================ */
-  @media (max-width: 960px) {
-    .hero-grid, .about-grid, .contact { grid-template-columns: 1fr; gap: 2.5rem; }
-    .skills-grid, .certs-grid { grid-template-columns: 1fr; }
-    .logo-row { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .logo-strip { padding: 2rem 1rem; }
-    .exp-grid { grid-template-columns: 1fr; gap: 0.75rem; }
-    .exp-body { padding-left: 1.5rem; }
-    .exp-item + .exp-item .exp-date { margin-top: 2.25rem; }
-    .nav-links { display: none; }
-    .contact { padding: 2.5rem 1.75rem; }
-    section, .section-soft > .section-inner { padding: 4rem 1.5rem; }
-    .hero { padding: 3.5rem 1.5rem 3.5rem; }
-    h1 { font-size: 2.4rem; }
-    .video-placeholder h3 { font-size: 18px; }
-    .video-play-icon { width: 64px; height: 64px; }
-  }
+:root{--bg:#fff;--soft:#f4f8fe;--primary:#2f6df0;--dark:#1f56d1;--hover:#2459dd;--light:#e8f1ff;--accent:#4f8ef7;--text:#0a1f44;--body:#334666;--muted:#697892;--border:#e3e9f2;--strong:#c9d5e8;--ok:#0a8f5f;--li:#0a66c2;--sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;--serif:'Fraunces',Georgia,serif;--mono:'JetBrains Mono',ui-monospace,monospace;--sh:0 4px 16px rgba(10,31,68,.06);--shl:0 16px 48px rgba(47,109,240,.14)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.i.f{fill:currentColor;stroke:none}
+.s18{font-size:18px}.s22{font-size:22px}.s16{font-size:16px}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:1.1rem 2rem;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px;letter-spacing:-.01em}
+.logo-mark{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;box-shadow:0 4px 12px rgba(47,109,240,.3)}
+.logo-sub{font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:400}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--body);font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--primary)}
+.nav-cta{background:var(--primary);color:#fff;padding:.55rem 1.1rem;border-radius:8px;font-size:13px;font-weight:600;transition:background .2s,transform .15s}
+.nav-cta:hover{background:var(--hover);transform:translateY(-1px)}
+.hero{max-width:1200px;margin:0 auto;padding:5rem 2rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;right:0;width:620px;height:620px;background:radial-gradient(circle,rgba(79,142,247,.12),transparent 60%);pointer-events:none;z-index:-1}
+.hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:4.5rem;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;background:var(--light);border:1px solid rgba(47,109,240,.2);border-radius:999px;font-size:12.5px;font-weight:600;color:var(--dark);margin-bottom:1.75rem}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--ok);animation:pulse 2s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(10,143,95,.5)}70%{box-shadow:0 0 0 8px rgba(10,143,95,0)}100%{box-shadow:0 0 0 0 rgba(10,143,95,0)}}
+h1{font-size:clamp(2.5rem,5.2vw,4.2rem);font-weight:700;line-height:1.05;letter-spacing:-.035em;margin-bottom:1.5rem}
+.serif{font-family:var(--serif);font-weight:400;font-style:italic;color:var(--primary)}
+.hero-desc{font-size:17px;line-height:1.7;color:var(--body);margin-bottom:1rem;max-width:560px}
+.hero-desc strong{color:var(--text);font-weight:600}
+.hero-now{font-size:14.5px;color:var(--muted);margin-bottom:2.1rem;max-width:560px}
+.hero-now b{color:var(--dark);font-weight:600}
+.hero-cta{display:flex;gap:.85rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn{padding:.9rem 1.75rem;border-radius:10px;font-size:14.5px;font-weight:600;transition:all .2s;display:inline-flex;align-items:center;gap:8px;border:1px solid transparent}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:0 4px 14px rgba(47,109,240,.3)}
+.btn-primary:hover{background:var(--hover);transform:translateY(-1px)}
+.btn-secondary{background:#fff;color:var(--text);border-color:var(--strong)}
+.btn-secondary:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-1px)}
+.hero-trust{display:flex;gap:2.25rem;flex-wrap:wrap;padding-top:1.75rem;border-top:1px solid var(--border)}
+.trust-value{font-size:22px;font-weight:700;letter-spacing:-.01em}
+.trust-value span{color:var(--primary)}
+.trust-label{font-size:12px;color:var(--muted);font-weight:500}
+.hero-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:2rem;box-shadow:var(--shl);position:relative;overflow:hidden}
+.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--primary),var(--accent))}
+.photo-wrap{display:flex;flex-direction:column;align-items:center;padding:.5rem 0 1.5rem;border-bottom:1px solid var(--border);margin-bottom:1.25rem}
+.profile-photo{width:210px;height:210px;border-radius:50%;object-fit:cover;object-position:center top;border:4px solid #fff;box-shadow:0 0 0 4px var(--light),0 14px 36px rgba(47,109,240,.28);background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-size:3.4rem;font-weight:700}
+.photo-name{margin-top:1.1rem;font-size:19px;font-weight:700;letter-spacing:-.01em}
+.photo-title{font-size:13px;color:var(--muted);margin-top:2px}
+.card-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:1rem;margin-bottom:.5rem}
+.card-header-left{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.card-badge{background:rgba(10,143,95,.1);color:var(--ok);padding:4px 10px;border-radius:999px;font-size:11px;font-weight:600;display:flex;align-items:center;gap:6px}
+.card-badge .dot{width:6px;height:6px;animation:none}
+.prow{display:grid;grid-template-columns:100px 1fr;padding:10px 0;border-bottom:1px dashed var(--border);gap:12px;font-size:13.5px}
+.prow:last-child{border-bottom:none}
+.prow .k{color:var(--muted);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.prow .v{font-weight:500}
+.chip{display:inline-block;background:var(--light);color:var(--dark);padding:2px 9px;border-radius:5px;font-size:11px;font-weight:600;margin-right:4px}
+section{max-width:1200px;margin:0 auto;padding:5.5rem 2rem}
+.soft{background:var(--soft)}
+.soft>.inner{max-width:1200px;margin:0 auto;padding:5.5rem 2rem}
+.label{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;color:var(--primary);text-transform:uppercase;letter-spacing:.12em;margin-bottom:1rem}
+.label::before{content:'';width:20px;height:2px;background:var(--primary)}
+h2{font-size:clamp(1.9rem,3.5vw,2.75rem);font-weight:700;letter-spacing:-.025em;line-height:1.15;margin-bottom:1rem;max-width:680px}
+.lead{font-size:16px;color:var(--body);max-width:620px;margin-bottom:3rem;line-height:1.65}
+.about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:4rem;align-items:start}
+.about-text p{color:var(--body);font-size:15.5px;line-height:1.85;margin-bottom:1.25rem}
+.about-text strong{color:var(--text);font-weight:600}
+.hl{background:linear-gradient(180deg,transparent 60%,rgba(79,142,247,.28) 60%);padding:0 2px;color:var(--text);font-weight:600}
+.card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:2rem;box-shadow:var(--sh)}
+.card h3.t{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1.5rem;font-weight:600}
+.hi{display:flex;gap:14px;padding:1rem 0;border-bottom:1px solid var(--border)}
+.hi:first-of-type{padding-top:0}.hi:last-child{border-bottom:none;padding-bottom:0}
+.ico{flex-shrink:0;width:38px;height:38px;background:var(--light);color:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.hi-t{font-size:14.5px;font-weight:600}
+.hi-d{font-size:12.5px;color:var(--muted);line-height:1.5}
+.video-wrap{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1rem;box-shadow:var(--sh);max-width:900px;margin:0 auto}
+.video-frame{aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#1f56d1,#2f6df0 55%,#4f8ef7);display:flex;align-items:center;justify-content:center}
+.video-frame video{width:100%;height:100%;object-fit:cover}
+.vp{text-align:center;color:#fff;padding:2rem}
+.play{width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-size:30px}
+.vp h3{font-size:22px;margin-bottom:8px}
+.vp p{font-size:14px;color:rgba(255,255,255,.85);max-width:380px;margin:0 auto}
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.skill{background:#fff;border:1px solid var(--border);border-radius:16px;padding:2rem;transition:transform .25s,box-shadow .25s}
+.skill:hover,.project:hover{transform:translateY(-3px);box-shadow:var(--shl)}
+.skill-h{display:flex;align-items:center;gap:12px;margin-bottom:1rem}
+.skill h3{font-size:17px;font-weight:600}
+.skill p{font-size:13px;color:var(--muted);margin-bottom:1.25rem;line-height:1.55}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{padding:6px 12px;background:var(--soft);border:1px solid var(--border);color:var(--body);font-size:12.5px;font-weight:500;border-radius:6px;transition:all .2s}
+.tag:hover{background:var(--light);border-color:rgba(47,109,240,.3);color:var(--dark)}
+.logo-strip{background:#fff;border:1px solid var(--border);border-radius:16px;padding:2.5rem 2rem;margin-top:1.5rem}
+.logo-strip-title{text-align:center;font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-bottom:2rem}
+.logo-row{display:grid;grid-template-columns:repeat(6,1fr);gap:1.5rem}
+.logo-item{display:flex;flex-direction:column;align-items:center;gap:8px;padding:1rem .5rem;border-radius:10px;transition:background .2s,transform .2s}
+.logo-item:hover{transform:translateY(-2px);background:var(--soft)}
+.logo-item img{width:42px;height:42px;object-fit:contain}
+.logo-item span{font-size:11.5px;font-weight:500;color:var(--muted)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.75rem}
+.project{background:#fff;border:1px solid var(--border);border-radius:16px;padding:2rem;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+.project::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--primary);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.project:hover::before{transform:scaleX(1)}
+.project-head{display:flex;justify-content:space-between;margin-bottom:1.25rem}
+.project h3{font-size:18px;font-weight:600;margin-bottom:.6rem;letter-spacing:-.01em}
+.project p{font-size:14px;color:var(--body);line-height:1.65;margin-bottom:1.25rem;flex:1}
+.stats{display:flex;gap:1.25rem;padding:.85rem 0;margin-bottom:1.25rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stats .val{font-size:15px;font-weight:700;color:var(--primary);line-height:1}
+.stats .lbl{font-size:11px;color:var(--muted);margin-top:3px}
+.ptags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem}
+.ptag{font-size:11.5px;padding:4px 10px;background:var(--light);color:var(--dark);border-radius:5px;font-weight:500}
+.plink{color:var(--primary);font-weight:600;font-size:13.5px;display:flex;align-items:center;gap:6px;transition:gap .2s}
+.plink:hover{gap:10px}
+.exp-grid{display:grid;grid-template-columns:180px 1fr;gap:3rem}
+.exp-item{display:contents}
+.exp-item+.exp-item .exp-date,.exp-item+.exp-item .exp-body{margin-top:2.5rem}
+.exp-date{font-size:13px;color:var(--muted);font-weight:500;padding-top:4px}
+.current{display:inline-block;background:rgba(10,143,95,.1);color:var(--ok);padding:3px 10px;border-radius:999px;font-size:11px;margin-top:8px;font-weight:600}
+.exp-body{padding-left:2rem;border-left:2px solid var(--border);position:relative}
+.exp-body::before{content:'';position:absolute;left:-7px;top:6px;width:12px;height:12px;background:#fff;border:3px solid var(--primary);border-radius:50%}
+.exp-body h3{font-size:20px;font-weight:600;margin-bottom:4px}
+.exp-role{color:var(--primary);font-size:14px;font-weight:500;margin-bottom:1rem}
+.exp-body ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.exp-body li{color:var(--body);font-size:14.5px;line-height:1.7;padding-left:1.5rem;position:relative}
+.exp-body li::before{content:'';position:absolute;left:0;top:10px;width:7px;height:7px;background:var(--primary);border-radius:50%}
+.certs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+.cert{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1.5rem 1.75rem;display:grid;grid-template-columns:auto 1fr auto;gap:1.25rem;align-items:center;transition:transform .2s,box-shadow .2s}
+.cert:hover{transform:translateY(-2px);box-shadow:var(--sh)}
+.cert .ico{width:48px;height:48px}
+.cert h3{font-size:15px;font-weight:600;margin-bottom:3px}
+.cert p{font-size:12.5px;color:var(--muted)}
+.code{font-family:var(--mono);font-size:11px;color:var(--primary);margin-top:3px;font-weight:500}
+.status{font-size:11px;padding:5px 11px;border-radius:999px;font-weight:600;white-space:nowrap}
+.status.active{background:rgba(10,143,95,.1);color:var(--ok)}
+.status.prog{background:var(--light);color:var(--dark)}
+.posts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
+.post{background:#fff;border:1px solid var(--border);border-radius:16px;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;overflow:hidden}
+.post:hover{transform:translateY(-3px);box-shadow:var(--shl)}
+.post-img{width:100%;aspect-ratio:16/10;overflow:hidden;background:linear-gradient(135deg,var(--light),var(--soft))}
+.post-img img{width:100%;height:100%;object-fit:cover;display:block}
+.post-body{padding:1.75rem;display:flex;flex-direction:column;flex:1}
+.post-head{display:flex;align-items:center;gap:12px;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border)}
+.avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--dark));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0}
+.author{font-size:14px;font-weight:600}
+.meta{font-size:11.5px;color:var(--li);font-weight:500;display:flex;align-items:center;gap:4px;margin-top:2px}
+.post h3{font-size:16px;font-weight:600;margin-bottom:.75rem;line-height:1.4}
+.post p{font-size:13.5px;color:var(--body);line-height:1.65;margin-bottom:1.25rem;flex:1}
+.post-tag{font-size:11.5px;padding:3px 10px;background:var(--soft);color:var(--dark);border-radius:999px;font-weight:500}
+.post-foot{display:flex;justify-content:space-between;align-items:center;padding-top:1rem;border-top:1px solid var(--border)}
+.featured{font-size:11px;color:var(--ok);font-weight:600;background:rgba(10,143,95,.1);padding:3px 9px;border-radius:999px}
+.post-link{color:var(--li);font-weight:600;font-size:13px;display:flex;align-items:center;gap:6px;transition:gap .2s}
+.post-link:hover{gap:10px}
+.contact{background:linear-gradient(135deg,#1f56d1,#2f6df0 60%,#4f8ef7);border-radius:24px;padding:4rem 3.5rem;color:#fff;display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(47,109,240,.3)}
+.contact::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,255,255,.14),transparent 70%)}
+.contact>*{position:relative;z-index:1}
+.contact .eyebrow{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.25);color:#fff}
+.contact h2{color:#fff}
+.contact h2 .serif{color:#cfe0ff}
+.contact p{color:rgba(255,255,255,.9);font-size:16px;line-height:1.7;margin-bottom:2rem;max-width:460px}
+.contact .btn-primary{background:#fff;color:var(--dark)}
+.contact .btn-primary:hover{background:#eef4ff}
+.clink{display:grid;grid-template-columns:40px 1fr auto;gap:14px;align-items:center;color:#fff;padding:1rem 0;border-top:1px solid rgba(255,255,255,.18);font-size:14px;transition:padding-left .25s}
+.clink:first-child{border-top:none}
+.clink:hover{padding-left:8px}
+.clink .ico{background:rgba(255,255,255,.14);color:#fff}
+.clink-l{display:block;font-size:11px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+.clink-v{font-weight:500}
+.arrow{opacity:0;transition:opacity .2s,transform .2s}
+.clink:hover .arrow{opacity:1;transform:translateX(4px)}
+footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:var(--muted);font-size:13px}
+footer .r{display:flex;gap:1.5rem}
+footer a:hover{color:var(--primary)}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.reveal{animation:up .8s cubic-bezier(.2,.8,.2,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(max-width:960px){
+.hero-grid,.about-grid,.contact{grid-template-columns:1fr;gap:2.5rem}
+.skills-grid,.certs-grid{grid-template-columns:1fr}
+.logo-row{grid-template-columns:repeat(3,1fr);gap:1rem}
+.exp-grid{grid-template-columns:1fr;gap:.75rem}
+.exp-body{padding-left:1.5rem}
+.exp-item+.exp-item .exp-date{margin-top:2.25rem}
+.nav-links{display:none}
+.contact{padding:2.5rem 1.75rem}
+section,.soft>.inner{padding:4rem 1.5rem}
+.hero{padding:3.5rem 1.5rem}
+h1{font-size:2.4rem}
+.profile-photo{width:180px;height:180px}
+}
 </style>
 </head>
 <body>
 
-<!-- ============ NAV ============ -->
+<!-- ICON SPRITE (each icon defined once, reused below) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+<symbol id="shieldok" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="pulse" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol>
+<symbol id="cloud" viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></symbol>
+<symbol id="pen" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 1 1 3 3L7 19l-4 1 1-4Z"/></symbol>
+<symbol id="search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+<symbol id="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+<symbol id="code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+<symbol id="bars" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></symbol>
+<symbol id="file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></symbol>
+<symbol id="lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+<symbol id="link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+<symbol id="mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+<symbol id="phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+<symbol id="cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></symbol>
+<symbol id="li" viewBox="0 0 24 24"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></symbol>
+<symbol id="gh" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.05-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016 0C17.14 4.55 18.15 4.87 18.15 4.87c.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22 0 1.61-.01 2.9-.01 3.29 0 .32.22.7.83.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></symbol>
+</svg>
+
 <nav>
   <div class="nav-inner">
-    <a href="#" class="logo">
-      <div class="logo-mark">RI</div>
-      <div>Ritesh Indore<div class="logo-sub">SOC Analyst</div></div>
-    </a>
+    <a href="#" class="logo"><div class="logo-mark">RI</div><div>Ritesh Indore<div class="logo-sub">SOC Analyst</div></div></a>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#posts">Posts</a></li>
-      <li><a href="#experience">Experience</a></li>
+      <li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#posts">Posts</a></li><li><a href="#experience">Experience</a></li>
     </ul>
     <a href="#contact" class="nav-cta">Get in touch</a>
   </div>
 </nav>
 
-<!-- ============ HERO ============ -->
 <section class="hero">
   <div class="hero-grid">
     <div>
       <div class="eyebrow reveal"><span class="dot"></span> Available for Junior SOC &amp; Cloud Security roles</div>
-      <h1 class="reveal d1">
-        Securing networks,<br>
-        protecting <span class="serif">assets</span>.
-      </h1>
-      <p class="hero-desc reveal d2">
-        Hi, I'm <strong>Ritesh</strong>. I'm an MSc Cybersecurity student at National College of Ireland and a <strong>CompTIA Security+</strong> certified SOC analyst. I love hunting threats, building detections, and making cloud environments harder to break into.
-      </p>
+      <h1 class="reveal d1">Securing networks,<br>protecting <span class="serif">assets</span>.</h1>
+      <p class="hero-desc reveal d2">Hi, I'm <strong>Ritesh</strong>. I'm an MSc Cybersecurity student at National College of Ireland and a <strong>CompTIA Security+</strong> and <strong>Microsoft SC-200</strong> certified SOC analyst. I love hunting threats, building detections, and making cloud environments harder to break into.</p>
+      <p class="hero-now reveal d2"><b>Right now:</b> studying for AWS Solutions Architect, sharpening my detections in Sentinel, and sharing what I learn on LinkedIn.</p>
       <div class="hero-cta reveal d3">
-        <a href="#contact" class="btn btn-primary">Get in touch →</a>
-        <a href="https://www.unimad.ai/resume/riteshindore" target="_blank" rel="noopener" class="btn btn-secondary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-          View Resume
-        </a>
+        <a href="#contact" class="btn btn-primary">Let's talk →</a>
+        <a href="https://www.unimad.ai/resume/riteshindore" target="_blank" rel="noopener" class="btn btn-secondary"><svg class="i s16"><use href="#file"/></svg> View Resume</a>
       </div>
       <div class="hero-trust reveal d4">
-        <div class="trust-item">
-          <div class="trust-value">Security<span class="accent">+</span></div>
-          <div class="trust-label">CompTIA Certified</div>
-        </div>
-        <div class="trust-item">
-          <div class="trust-value">100<span class="accent">+</span></div>
-          <div class="trust-label">PortSwigger labs</div>
-        </div>
-        <div class="trust-item">
-          <div class="trust-value">MSc</div>
-          <div class="trust-label">NCI Dublin</div>
-        </div>
-        <div class="trust-item">
-          <div class="trust-value">5<span class="accent">+</span></div>
-          <div class="trust-label">Months industry exp</div>
-        </div>
+        <div><div class="trust-value">Security<span>+</span></div><div class="trust-label">CompTIA Certified</div></div>
+        <div><div class="trust-value">SC<span>-200</span></div><div class="trust-label">Microsoft Certified</div></div>
+        <div><div class="trust-value">100<span>+</span></div><div class="trust-label">PortSwigger labs</div></div>
+        <div><div class="trust-value">MSc</div><div class="trust-label">NCI Dublin</div></div>
       </div>
     </div>
 
     <div class="hero-card reveal d3">
-      <div class="profile-photo-wrap">
-        <img class="profile-photo" src="profile.jpg" alt="Ritesh Indore" onerror="this.outerHTML='<div class=\'profile-photo\'>RI</div>'">
-        <div class="profile-photo-name">Ritesh Indore</div>
-        <div class="profile-photo-title">SOC Analyst, Dublin</div>
+      <div class="photo-wrap">
+        <img class="profile-photo" src="profile.jpeg" alt="Ritesh Indore" onerror="this.outerHTML='<div class=\'profile-photo\'>RI</div>'">
+        <div class="photo-name">Ritesh Indore</div>
+        <div class="photo-title">SOC Analyst, Dublin</div>
       </div>
-      <div class="card-header">
-        <div class="card-header-left">Profile Overview</div>
-        <div class="card-badge"><span class="dot"></span> Available</div>
-      </div>
-      <div class="profile-row"><div class="k">Name</div><div class="v">Ritesh Indore</div></div>
-      <div class="profile-row"><div class="k">Role</div><div class="v">Junior SOC Analyst</div></div>
-      <div class="profile-row"><div class="k">Location</div><div class="v">Dublin, Ireland</div></div>
-      <div class="profile-row"><div class="k">Education</div><div class="v">MSc Cybersecurity, NCI</div></div>
-      <div class="profile-row"><div class="k">Focus</div><div class="v"><span class="chip">SIEM</span><span class="chip">Cloud</span><span class="chip">IR</span></div></div>
-      <div class="profile-row"><div class="k">Languages</div><div class="v">English, Hindi, Marathi</div></div>
+      <div class="card-header"><div class="card-header-left">Profile Overview</div><div class="card-badge"><span class="dot"></span> Available</div></div>
+      <div class="prow"><div class="k">Role</div><div class="v">Junior SOC Analyst</div></div>
+      <div class="prow"><div class="k">Location</div><div class="v">Dublin, Ireland</div></div>
+      <div class="prow"><div class="k">Education</div><div class="v">MSc Cybersecurity, NCI</div></div>
+      <div class="prow"><div class="k">Focus</div><div class="v"><span class="chip">SIEM</span><span class="chip">Cloud</span><span class="chip">IR</span></div></div>
+      <div class="prow"><div class="k">Languages</div><div class="v">English, Hindi, Marathi</div></div>
     </div>
   </div>
 </section>
 
-<!-- ============ ABOUT ============ -->
 <section id="about">
-  <div class="section-label">About me</div>
+  <div class="label">About me</div>
   <h2>A blue team <span class="serif">mindset</span> shaped by real operations.</h2>
-  <p class="section-lead">From configuring firewalls in Mumbai to building a full SOC environment in Dublin, here's how I got here, and where I'm headed.</p>
-
+  <p class="lead">From configuring firewalls in Mumbai to building a full SOC environment in Dublin, here's how I got here, and where I'm headed.</p>
   <div class="about-grid">
     <div class="about-text">
       <p>My path into cybersecurity started with a friend's referral to an internship at Telenetworks Technologies in Navi Mumbai. I walked in expecting to learn some basic networking. I left with a real understanding of how enterprise infrastructure actually works: subnets, VLANs, firewall rules, and VPN tunnels running across more than 30 banking systems.</p>
-      <p>Things really clicked when I started analysing telemetry in <strong>Splunk, Wazuh, and Nessus</strong>. For the first time I wasn't just reading traffic, I was reading behaviour. Patterns. Anomalies. The moment I realised I could <span class="highlight">think like an attacker to defend better</span>, I knew blue team was where I wanted to be.</p>
-      <p>I earned my <strong>CompTIA Security+</strong> during the internship, then moved to Dublin to study Cybersecurity at National College of Ireland. Right now I'm preparing for <strong>Microsoft SC-200</strong>, working with Sentinel and Defender almost every day, and looking for Junior SOC roles in Dublin where I can get stuck in from day one.</p>
+      <p>Things really clicked when I started analysing telemetry in <strong>Splunk, Wazuh, and Nessus</strong>. For the first time I wasn't just reading traffic, I was reading behaviour. Patterns. Anomalies. The moment I realised I could <span class="hl">think like an attacker to defend better</span>, I knew blue team was where I wanted to be.</p>
+      <p>I earned my <strong>CompTIA Security+</strong> during the internship, then moved to Dublin to study Cybersecurity at National College of Ireland. Since then I've added <strong>Microsoft SC-200</strong>, work with Sentinel and Defender almost every day, and I'm looking for Junior SOC roles in Dublin where I can get stuck in from day one.</p>
     </div>
-
-    <div class="highlights-card">
-      <h3>Quick Highlights</h3>
-      <div class="highlight-item">
-        <div class="highlight-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div>
-          <div class="highlight-title">CompTIA Security+ Certified</div>
-          <div class="highlight-desc">SY0-701, earned July 2025</div>
-        </div>
-      </div>
-      <div class="highlight-item">
-        <div class="highlight-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        </div>
-        <div>
-          <div class="highlight-title">Hands-on SOC experience</div>
-          <div class="highlight-desc">Built a 3-VM Wazuh SIEM lab from scratch</div>
-        </div>
-      </div>
-      <div class="highlight-item">
-        <div class="highlight-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
-        </div>
-        <div>
-          <div class="highlight-title">Cloud security focus</div>
-          <div class="highlight-desc">AWS: EC2, VPC, IAM, WAF, CloudWatch</div>
-        </div>
-      </div>
-      <div class="highlight-item">
-        <div class="highlight-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 1 1 3 3L7 19l-4 1 1-4Z"/></svg>
-        </div>
-        <div>
-          <div class="highlight-title">Currently working on</div>
-          <div class="highlight-desc">Microsoft SC-200 and AWS Solutions Architect</div>
-        </div>
-      </div>
+    <div class="card">
+      <h3 class="t">Quick Highlights</h3>
+      <div class="hi"><div class="ico"><svg class="i s18"><use href="#shield"/></svg></div><div><div class="hi-t">CompTIA Security+ Certified</div><div class="hi-d">SY0-701, earned July 2025</div></div></div>
+      <div class="hi"><div class="ico"><svg class="i s18"><use href="#lock"/></svg></div><div><div class="hi-t">Microsoft SC-200 Certified</div><div class="hi-d">Security Operations Analyst, May 2026</div></div></div>
+      <div class="hi"><div class="ico"><svg class="i s18"><use href="#pulse"/></svg></div><div><div class="hi-t">Hands-on SOC experience</div><div class="hi-d">Built a 3-VM Wazuh SIEM lab from scratch</div></div></div>
+      <div class="hi"><div class="ico"><svg class="i s18"><use href="#cloud"/></svg></div><div><div class="hi-t">Cloud security focus</div><div class="hi-d">AWS: EC2, VPC, IAM, WAF, CloudWatch</div></div></div>
+      <div class="hi"><div class="ico"><svg class="i s18"><use href="#pen"/></svg></div><div><div class="hi-t">Currently working on</div><div class="hi-d">AWS Solutions Architect</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ============ VIDEO INTRO ============ -->
-<div class="section-soft">
-  <div class="section-inner" id="video">
-    <div class="section-label">A quick hello</div>
+<div class="soft">
+  <div class="inner" id="video">
+    <div class="label">A quick hello</div>
     <h2>Get to know me in <span class="serif">60 seconds</span>.</h2>
-    <p class="section-lead">A short video about who I am, what I love about blue team work, and what I'm looking for. Sometimes a quick hello says more than a CV ever could.</p>
-
-    <div class="video-wrap">
-      <div class="video-frame">
-        <!--
-          ============================================
-          HOW TO ADD YOUR VIDEO:
-          1. Record your video on your iPhone (vertical or horizontal both work)
-          2. Save it as: intro.mp4
-          3. Upload intro.mp4 to the same folder as index.html in your GitHub repo
-          4. Replace this whole <div class="video-placeholder"> block with the
-             <video> tag below (just remove the comment markers)
-          ============================================
-        -->
-
-        <!--
-        <video controls poster="profile.jpg" preload="metadata">
-          <source src="intro.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        -->
-
-        <div class="video-placeholder">
-          <div class="video-play-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff" stroke="#fff" stroke-width="1" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
-          </div>
-          <h3>Video coming soon</h3>
-          <p>A short intro about me and my passion for cybersecurity. Recording in progress.</p>
-        </div>
-      </div>
-    </div>
+    <p class="lead">A short video about who I am, what I love about blue team work, and what I'm looking for. Sometimes a quick hello says more than a CV ever could.</p>
+    <div class="video-wrap"><div class="video-frame">
+      <!-- To add your video: upload intro.mp4 to this repo folder, then replace the .vp block below with:
+      <video controls poster="profile.jpeg" preload="metadata"><source src="intro.mp4" type="video/mp4"></video> -->
+      <div class="vp"><div class="play">▶</div><h3>Video coming soon</h3><p>A short intro about me and my passion for cybersecurity. Recording in progress.</p></div>
+    </div></div>
   </div>
 </div>
 
-<!-- ============ SKILLS ============ -->
 <section id="skills">
-  <div class="section-label">Skills &amp; Tools</div>
+  <div class="label">Skills &amp; Tools</div>
   <h2>Technical <span class="serif">expertise</span> across the full defence stack.</h2>
-  <p class="section-lead">From SIEM platforms to cloud infrastructure and penetration testing, here's the toolkit I've built through hands-on work and a lot of late-night labs.</p>
-
+  <p class="lead">From SIEM platforms to cloud infrastructure and penetration testing, here's the toolkit I've built through hands-on work and a lot of late-night labs.</p>
   <div class="skills-grid">
-    <div class="skill-card">
-      <div class="skill-card-header">
-        <div class="skill-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        </div>
-        <h3>Detection &amp; Response</h3>
-      </div>
-      <p>The SIEM platforms, threat hunting tools, and incident response gear I use day to day.</p>
-      <div class="tag-list">
-        <span class="tag">Wazuh</span>
-        <span class="tag">Splunk</span>
-        <span class="tag">Microsoft Sentinel</span>
-        <span class="tag">Microsoft Defender</span>
-        <span class="tag">Wireshark</span>
-        <span class="tag">Nessus</span>
-        <span class="tag">Maltego</span>
-      </div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-card-header">
-        <div class="skill-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-        </div>
-        <h3>Cloud &amp; Infrastructure</h3>
-      </div>
-      <p>Securing and monitoring cloud workloads with native AWS services and observability tools.</p>
-      <div class="tag-list">
-        <span class="tag">AWS EC2</span>
-        <span class="tag">VPC</span>
-        <span class="tag">IAM</span>
-        <span class="tag">WAF</span>
-        <span class="tag">S3 / KMS</span>
-        <span class="tag">CloudWatch</span>
-        <span class="tag">CloudTrail</span>
-        <span class="tag">Datadog</span>
-        <span class="tag">Docker</span>
-      </div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-card-header">
-        <div class="skill-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        </div>
-        <h3>Network &amp; Perimeter</h3>
-      </div>
-      <p>Enterprise networking, firewall administration, and web gateway deployment.</p>
-      <div class="tag-list">
-        <span class="tag">TCP/IP</span>
-        <span class="tag">VLANs</span>
-        <span class="tag">Fortinet Firewalls</span>
-        <span class="tag">IPsec VPN</span>
-        <span class="tag">NAT / ACLs</span>
-        <span class="tag">Forcepoint DLP</span>
-        <span class="tag">Netskope</span>
-        <span class="tag">Zscaler</span>
-      </div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-card-header">
-        <div class="skill-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        </div>
-        <h3>Offensive &amp; Scripting</h3>
-      </div>
-      <p>Security testing, automation, and scripting to speed up investigation and remediation.</p>
-      <div class="tag-list">
-        <span class="tag">Burp Suite</span>
-        <span class="tag">OWASP ZAP</span>
-        <span class="tag">Nmap</span>
-        <span class="tag">Metasploit</span>
-        <span class="tag">Python</span>
-        <span class="tag">Bash</span>
-        <span class="tag">PowerShell</span>
-        <span class="tag">KQL</span>
-      </div>
-    </div>
+    <div class="skill"><div class="skill-h"><div class="ico"><svg class="i s22"><use href="#search"/></svg></div><h3>Detection &amp; Response</h3></div><p>The SIEM platforms, threat hunting tools, and incident response gear I use day to day.</p>
+      <div class="tags"><span class="tag">Wazuh</span><span class="tag">Splunk</span><span class="tag">Microsoft Sentinel</span><span class="tag">Microsoft Defender</span><span class="tag">Wireshark</span><span class="tag">Nessus</span><span class="tag">Maltego</span></div></div>
+    <div class="skill"><div class="skill-h"><div class="ico"><svg class="i s22"><use href="#cloud"/></svg></div><h3>Cloud &amp; Infrastructure</h3></div><p>Securing and monitoring cloud workloads with native AWS services and observability tools.</p>
+      <div class="tags"><span class="tag">AWS EC2</span><span class="tag">VPC</span><span class="tag">IAM</span><span class="tag">WAF</span><span class="tag">S3 / KMS</span><span class="tag">CloudWatch</span><span class="tag">CloudTrail</span><span class="tag">Datadog</span><span class="tag">Docker</span></div></div>
+    <div class="skill"><div class="skill-h"><div class="ico"><svg class="i s22"><use href="#globe"/></svg></div><h3>Network &amp; Perimeter</h3></div><p>Enterprise networking, firewall administration, and web gateway deployment.</p>
+      <div class="tags"><span class="tag">TCP/IP</span><span class="tag">VLANs</span><span class="tag">Fortinet Firewalls</span><span class="tag">IPsec VPN</span><span class="tag">NAT / ACLs</span><span class="tag">Forcepoint DLP</span><span class="tag">Netskope</span><span class="tag">Zscaler</span></div></div>
+    <div class="skill"><div class="skill-h"><div class="ico"><svg class="i s22"><use href="#code"/></svg></div><h3>Offensive &amp; Scripting</h3></div><p>Security testing, automation, and scripting to speed up investigation and remediation.</p>
+      <div class="tags"><span class="tag">Burp Suite</span><span class="tag">OWASP ZAP</span><span class="tag">Nmap</span><span class="tag">Metasploit</span><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">PowerShell</span><span class="tag">KQL</span></div></div>
   </div>
-
-  <!-- LOGO STRIP -->
-  <div class="logo-strip">
-    <div class="logo-strip-title">Tools &amp; Platforms I Work With</div>
-    <div class="logo-row">
-      <div class="logo-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS" loading="lazy">
-        <span class="logo-name">AWS</span>
-      </div>
-      <div class="logo-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Microsoft Azure" loading="lazy">
-        <span class="logo-name">Azure</span>
-      </div>
-      <div class="logo-item">
-        <img src="https://cdn.simpleicons.org/splunk/000000" alt="Splunk" loading="lazy">
-        <span class="logo-name">Splunk</span>
-      </div>
-      <div class="logo-item">
-        <img src="https://cdn.simpleicons.org/fortinet/EE3124" alt="Fortinet" loading="lazy">
-        <span class="logo-name">Fortinet</span>
-      </div>
-      <div class="logo-item">
-        <img src="https://cdn.simpleicons.org/wireshark/1679A7" alt="Wireshark" loading="lazy">
-        <span class="logo-name">Wireshark</span>
-      </div>
-      <div class="logo-item">
-        <img src="https://cdn.simpleicons.org/datadog/632CA6" alt="Datadog" loading="lazy">
-        <span class="logo-name">Datadog</span>
-      </div>
-      <div class="logo-item">
-        <img src="https://cdn.simpleicons.org/burpsuite/FF6633" alt="Burp Suite" loading="lazy">
-        <span class="logo-name">Burp Suite</span>
-      </div>
-      <div class="logo-item">
-        <img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker" loading="lazy">
-        <span class="logo-name">Docker</span>
-      </div>
-      <div class="logo-item">
-        <img src="https://cdn.simpleicons.org/linux/000000" alt="Linux" loading="lazy">
-        <span class="logo-name">Linux</span>
-      </div>
-      <div class="logo-item">
-        <img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" loading="lazy">
-        <span class="logo-name">Python</span>
-      </div>
-      <div class="logo-item">
-        <img src="https://cdn.simpleicons.org/kalilinux/557C94" alt="Kali Linux" loading="lazy">
-        <span class="logo-name">Kali</span>
-      </div>
-      <div class="logo-item">
-        <img src="https://cdn.simpleicons.org/comptia/C8202F" alt="CompTIA" loading="lazy">
-        <span class="logo-name">CompTIA</span>
-      </div>
-    </div>
-  </div>
+  <div class="logo-strip"><div class="logo-strip-title">Tools &amp; Platforms I Work With</div><div class="logo-row" id="logos"></div></div>
 </section>
 
-<!-- ============ PROJECTS ============ -->
-<div class="section-soft">
-  <div class="section-inner" id="projects">
-    <div class="section-label">Selected Work</div>
+<div class="soft">
+  <div class="inner" id="projects">
+    <div class="label">Selected Work</div>
     <h2>Projects that put <span class="serif">theory</span> into practice.</h2>
-    <p class="section-lead">Hands-on labs and deployments where I built, broke, and defended real systems.</p>
-
+    <p class="lead">Hands-on labs and deployments where I built, broke, and defended real systems.</p>
     <div class="projects-grid">
       <article class="project">
-        <div class="project-head">
-          <div class="project-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <span class="project-num">01 / 03</span>
-        </div>
+        <div class="project-head"><div class="ico"><svg class="i s22"><use href="#shield"/></svg></div></div>
         <h3>Wazuh SOC Environment</h3>
         <p>Designed and deployed a complete Security Operations Centre using Wazuh to monitor three virtual machines. I configured agents for file integrity monitoring, authentication tracking, and firewall log analysis, then wrote custom detection rules and dashboards for real-time threat response.</p>
-        <div class="project-stats">
-          <div class="pstat"><div class="val">+90%</div><div class="lbl">Detection accuracy</div></div>
-          <div class="pstat"><div class="val">3</div><div class="lbl">VMs monitored</div></div>
-          <div class="pstat"><div class="val">24/7</div><div class="lbl">Log collection</div></div>
-        </div>
-        <div class="project-tags">
-          <span class="project-tag">Wazuh</span>
-          <span class="project-tag">SIEM</span>
-          <span class="project-tag">Detection</span>
-          <span class="project-tag">IR</span>
-        </div>
-        <a href="https://github.com/Riteshhhh22/Local_SOC_Wazuh" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+        <div class="stats"><div><div class="val">+90%</div><div class="lbl">Detection accuracy</div></div><div><div class="val">3</div><div class="lbl">VMs monitored</div></div><div><div class="val">24/7</div><div class="lbl">Log collection</div></div></div>
+        <div class="ptags"><span class="ptag">Wazuh</span><span class="ptag">SIEM</span><span class="ptag">Detection</span><span class="ptag">IR</span></div>
+        <a href="https://github.com/Riteshhhh22/Local_SOC_Wazuh" target="_blank" rel="noopener" class="plink">View on GitHub →</a>
       </article>
-
       <article class="project">
-        <div class="project-head">
-          <div class="project-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-          </div>
-          <span class="project-num">02 / 03</span>
-        </div>
+        <div class="project-head"><div class="ico"><svg class="i s22"><use href="#cloud"/></svg></div></div>
         <h3>AWS Web Application Security Architecture</h3>
         <p>Deployed a hardened WordPress stack on AWS using EC2, VPC, IAM, WAF, and ALB with layered defences including ModSecurity, Fail2Ban, and Wordfence. I validated the controls with penetration testing tools and watched it all in real time through CloudWatch.</p>
-        <div class="project-stats">
-          <div class="pstat"><div class="val">OWASP</div><div class="lbl">Top 10 tested</div></div>
-          <div class="pstat"><div class="val">7</div><div class="lbl">AWS services</div></div>
-          <div class="pstat"><div class="val">TLS</div><div class="lbl">End-to-end</div></div>
-        </div>
-        <div class="project-tags">
-          <span class="project-tag">AWS</span>
-          <span class="project-tag">WAF</span>
-          <span class="project-tag">Pen Testing</span>
-          <span class="project-tag">CloudWatch</span>
-        </div>
-        <a href="https://github.com/Riteshhhh22/AWS-Webapplication-security-architecture" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+        <div class="stats"><div><div class="val">OWASP</div><div class="lbl">Top 10 tested</div></div><div><div class="val">7</div><div class="lbl">AWS services</div></div><div><div class="val">TLS</div><div class="lbl">End-to-end</div></div></div>
+        <div class="ptags"><span class="ptag">AWS</span><span class="ptag">WAF</span><span class="ptag">Pen Testing</span><span class="ptag">CloudWatch</span></div>
+        <a href="https://github.com/Riteshhhh22/AWS-Webapplication-security-architecture" target="_blank" rel="noopener" class="plink">View on GitHub →</a>
       </article>
-
       <article class="project">
-        <div class="project-head">
-          <div class="project-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-          </div>
-          <span class="project-num">03 / 03</span>
-        </div>
+        <div class="project-head"><div class="ico"><svg class="i s22"><use href="#bars"/></svg></div></div>
         <h3>Datadog Observability Lab</h3>
         <p>Set up Datadog on two AWS EC2 instances with agents configured for Network Performance Monitoring. I generated traffic between the hosts with iperf3 and built a custom dashboard tracking CPU, bytes written, and live network flows.</p>
-        <div class="project-stats">
-          <div class="pstat"><div class="val">2</div><div class="lbl">EC2 instances</div></div>
-          <div class="pstat"><div class="val">Live</div><div class="lbl">NPM enabled</div></div>
-          <div class="pstat"><div class="val">Custom</div><div class="lbl">Dashboard</div></div>
-        </div>
-        <div class="project-tags">
-          <span class="project-tag">Datadog</span>
-          <span class="project-tag">AWS EC2</span>
-          <span class="project-tag">Monitoring</span>
-        </div>
-        <a href="https://www.linkedin.com/posts/ritesh-indore_aws-datadog-cloudsecurity-activity-7438600553590562816-eodC" target="_blank" rel="noopener" class="project-link">View on LinkedIn →</a>
+        <div class="stats"><div><div class="val">2</div><div class="lbl">EC2 instances</div></div><div><div class="val">Live</div><div class="lbl">NPM enabled</div></div><div><div class="val">Custom</div><div class="lbl">Dashboard</div></div></div>
+        <div class="ptags"><span class="ptag">Datadog</span><span class="ptag">AWS EC2</span><span class="ptag">Monitoring</span></div>
+        <a href="https://www.linkedin.com/posts/ritesh-indore_aws-datadog-cloudsecurity-activity-7438600553590562816-eodC" target="_blank" rel="noopener" class="plink">View on LinkedIn →</a>
       </article>
     </div>
   </div>
 </div>
 
-<!-- ============ EXPERIENCE ============ -->
 <section id="experience">
-  <div class="section-label">Experience</div>
+  <div class="label">Experience</div>
   <h2>Professional <span class="serif">journey</span>.</h2>
-  <p class="section-lead">A mix of hands-on security operations and customer-facing work across India and Ireland.</p>
-
+  <p class="lead">A mix of hands-on security operations and customer-facing work across India and Ireland.</p>
   <div class="exp-grid">
     <div class="exp-item">
-      <div class="exp-date">
-        Nov 2025 to<br>Present
-        <div><span class="current">● Current</span></div>
-      </div>
+      <div class="exp-date">Nov 2025 to<br>Present<div><span class="current">● Current</span></div></div>
       <div class="exp-body">
         <h3>Pelco (Centra)</h3>
-        <div class="exp-role">Sales Assistant <span class="sep">/</span> Dublin, Ireland</div>
+        <div class="exp-role">Sales Assistant / Dublin, Ireland</div>
         <ul>
           <li>Maintain a 99% POS transaction success rate while supporting team operations during peak hours</li>
           <li>Building communication, teamwork, and customer-facing skills in a fast-paced retail environment while pursuing my MSc full-time</li>
         </ul>
       </div>
     </div>
-
     <div class="exp-item">
       <div class="exp-date">Mar 2025 to<br>Aug 2025</div>
       <div class="exp-body">
         <h3>Telenetworks Technologies</h3>
-        <div class="exp-role">Cybersecurity &amp; Network Operations Intern <span class="sep">/</span> Navi Mumbai, India</div>
+        <div class="exp-role">Cybersecurity &amp; Network Operations Intern / Navi Mumbai, India</div>
         <ul>
           <li>Configured and managed Fortinet firewalls, site-to-site and remote VPNs, and network segmentation across more than 30 banking systems</li>
           <li>Monitored security logs, endpoints, and alerts using Splunk, Wazuh, and Nessus to catch threats before they became incidents</li>
@@ -1620,133 +383,48 @@
   </div>
 </section>
 
-<!-- ============ CERTS ============ -->
-<div class="section-soft">
-  <div class="section-inner" id="certs">
-    <div class="section-label">Certifications</div>
+<div class="soft">
+  <div class="inner" id="certs">
+    <div class="label">Certifications</div>
     <h2>Validated <span class="serif">credentials</span>.</h2>
-    <p class="section-lead">Industry-recognised certifications and continuous hands-on training across security domains.</p>
-
+    <p class="lead">Industry-recognised certifications and continuous hands-on training across security domains.</p>
     <div class="certs-grid">
-      <div class="cert">
-        <div class="cert-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-        </div>
-        <div class="cert-info">
-          <h3>CompTIA Security+</h3>
-          <p>CompTIA, issued July 2025</p>
-          <div class="code">SY0-701</div>
-        </div>
-        <span class="cert-status active">Active</span>
-      </div>
-
-      <div class="cert">
-        <div class="cert-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        </div>
-        <div class="cert-info">
-          <h3>Microsoft Security Operations Analyst</h3>
-          <p>Microsoft, Security Operations</p>
-          <div class="code">SC-200</div>
-        </div>
-        <span class="cert-status prog">In Progress</span>
-      </div>
-
-      <div class="cert">
-        <div class="cert-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-        </div>
-        <div class="cert-info">
-          <h3>AWS Solutions Architect, Associate</h3>
-          <p>Amazon Web Services</p>
-          <div class="code">SAA-C03</div>
-        </div>
-        <span class="cert-status prog">In Progress</span>
-      </div>
-
-      <div class="cert">
-        <div class="cert-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-        </div>
-        <div class="cert-info">
-          <h3>PortSwigger Web Security Academy</h3>
-          <p>100+ labs across XSS, SQLi, CSRF, SSRF</p>
-          <div class="code">ONGOING</div>
-        </div>
-        <span class="cert-status active">Ongoing</span>
-      </div>
+      <div class="cert"><div class="ico"><svg class="i s22"><use href="#shieldok"/></svg></div><div><h3>CompTIA Security+</h3><p>CompTIA, issued July 2025</p><div class="code">SY0-701</div></div><span class="status active">Active</span></div>
+      <div class="cert"><div class="ico"><svg class="i s22"><use href="#lock"/></svg></div><div><h3>Microsoft Security Operations Analyst</h3><p>Microsoft, issued May 2026</p><div class="code">SC-200</div></div><span class="status active">Active</span></div>
+      <div class="cert"><div class="ico"><svg class="i s22"><use href="#cloud"/></svg></div><div><h3>AWS Solutions Architect, Associate</h3><p>Amazon Web Services</p><div class="code">SAA-C03</div></div><span class="status prog">In Progress</span></div>
+      <div class="cert"><div class="ico"><svg class="i s22"><use href="#link"/></svg></div><div><h3>PortSwigger Web Security Academy</h3><p>100+ labs across XSS, SQLi, CSRF, SSRF</p><div class="code">ONGOING</div></div><span class="status active">Ongoing</span></div>
     </div>
   </div>
 </div>
 
-<!-- ============ LINKEDIN POSTS ============ -->
 <section id="posts">
-  <div class="section-label">From the Feed</div>
+  <div class="label">From the Feed</div>
   <h2>Things I've shared on <span class="serif">LinkedIn</span>.</h2>
-  <p class="section-lead">I write about what I'm learning, building, and breaking. Here are a few posts the community seemed to enjoy.</p>
-
+  <p class="lead">I write about what I'm learning, building, and breaking. Here are a few posts the community seemed to enjoy.</p>
   <div class="posts-grid">
-    <article class="post-card">
-      <div class="post-img-wrap">
-        <img src="post-security.jpg" alt="How I Cracked CompTIA Security+ in 1 Month">
-      </div>
+    <article class="post">
+      <div class="post-img"><img src="post-security.jpg" alt="How I Cracked CompTIA Security+ in 1 Month"></div>
       <div class="post-body">
-      <div class="post-header">
-        <div class="post-avatar">RI</div>
-        <div>
-          <div class="post-author">Ritesh Indore</div>
-          <div class="post-meta"><span class="linkedin-badge">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
-            LinkedIn Post
-          </span></div>
-        </div>
-      </div>
-      <h3>How I Cracked CompTIA Security+ in 1 Month</h3>
-      <p>The full story behind my Security+ journey: the resources I used, the mistakes I made, and the study strategy that actually worked. This one really resonated with the community.</p>
-      <div class="post-tags">
-        <span class="post-tag">#Security+</span>
-        <span class="post-tag">#StudyTips</span>
-        <span class="post-tag">#Cybersecurity</span>
-      </div>
-      <div class="post-footer">
-        <span class="featured">★ Top Post</span>
-        <a href="https://www.linkedin.com/posts/ritesh-indore_how-i-cracked-comptia-security-in-1-month-activity-7421541978498252801-EYBR" target="_blank" rel="noopener" class="post-link">Read post →</a>
-      </div>
+        <div class="post-head"><div class="avatar">RI</div><div><div class="author">Ritesh Indore</div><div class="meta"><svg class="i f" style="font-size:11px"><use href="#li"/></svg> LinkedIn Post</div></div></div>
+        <h3>How I Cracked CompTIA Security+ in 1 Month</h3>
+        <p>The full story behind my Security+ journey: the resources I used, the mistakes I made, and the study strategy that actually worked. This one really resonated with the community.</p>
+        <div class="ptags"><span class="post-tag">#Security+</span><span class="post-tag">#StudyTips</span><span class="post-tag">#Cybersecurity</span></div>
+        <div class="post-foot"><span class="featured">★ Top Post</span><a href="https://www.linkedin.com/posts/ritesh-indore_how-i-cracked-comptia-security-in-1-month-activity-7421541978498252801-EYBR" target="_blank" rel="noopener" class="post-link">Read post →</a></div>
       </div>
     </article>
-
-    <article class="post-card">
-      <div class="post-img-wrap">
-        <img src="post-datadog.jpg" alt="Cloud Monitoring with Datadog and AWS">
-      </div>
+    <article class="post">
+      <div class="post-img"><img src="post-datadog.jpg" alt="Cloud Monitoring with Datadog and AWS"></div>
       <div class="post-body">
-      <div class="post-header">
-        <div class="post-avatar">RI</div>
-        <div>
-          <div class="post-author">Ritesh Indore</div>
-          <div class="post-meta"><span class="linkedin-badge">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
-            LinkedIn Post
-          </span></div>
-        </div>
-      </div>
-      <h3>Cloud Monitoring with Datadog and AWS</h3>
-      <p>A walkthrough of my Datadog observability lab: setting up agents on EC2, enabling Network Performance Monitoring, and building a custom dashboard to watch live network flows between instances.</p>
-      <div class="post-tags">
-        <span class="post-tag">#AWS</span>
-        <span class="post-tag">#Datadog</span>
-        <span class="post-tag">#CloudSecurity</span>
-      </div>
-      <div class="post-footer">
-        <span></span>
-        <a href="https://www.linkedin.com/posts/ritesh-indore_aws-datadog-cloudsecurity-activity-7438600553590562816-eodC" target="_blank" rel="noopener" class="post-link">Read post →</a>
-      </div>
+        <div class="post-head"><div class="avatar">RI</div><div><div class="author">Ritesh Indore</div><div class="meta"><svg class="i f" style="font-size:11px"><use href="#li"/></svg> LinkedIn Post</div></div></div>
+        <h3>Cloud Monitoring with Datadog and AWS</h3>
+        <p>A walkthrough of my Datadog observability lab: setting up agents on EC2, enabling Network Performance Monitoring, and building a custom dashboard to watch live network flows between instances.</p>
+        <div class="ptags"><span class="post-tag">#AWS</span><span class="post-tag">#Datadog</span><span class="post-tag">#CloudSecurity</span></div>
+        <div class="post-foot"><span></span><a href="https://www.linkedin.com/posts/ritesh-indore_aws-datadog-cloudsecurity-activity-7438600553590562816-eodC" target="_blank" rel="noopener" class="post-link">Read post →</a></div>
       </div>
     </article>
   </div>
 </section>
 
-<!-- ============ CONTACT ============ -->
 <section id="contact">
   <div class="contact">
     <div>
@@ -1755,85 +433,29 @@
       <p>I'm actively looking for Junior SOC Analyst, Detection Engineer, or Cloud Security roles in Dublin. If you're hiring or you just want to chat about blue team work, drop me a message.</p>
       <a href="mailto:riteshindore225@gmail.com" class="btn btn-primary">Send me an email →</a>
     </div>
-
-    <div class="contact-links">
-      <a href="mailto:riteshindore225@gmail.com" class="clink">
-        <div class="clink-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </div>
-        <div class="clink-text">
-          <span class="clink-label">Email</span>
-          <span class="clink-value">riteshindore225@gmail.com</span>
-        </div>
-        <span class="clink-arrow">→</span>
-      </a>
-
-      <a href="tel:+353899445604" class="clink">
-        <div class="clink-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        </div>
-        <div class="clink-text">
-          <span class="clink-label">Phone</span>
-          <span class="clink-value">+353 89 944 5604</span>
-        </div>
-        <span class="clink-arrow">→</span>
-      </a>
-
-      <a href="https://www.linkedin.com/in/ritesh-indore" target="_blank" rel="noopener" class="clink">
-        <div class="clink-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
-        </div>
-        <div class="clink-text">
-          <span class="clink-label">LinkedIn</span>
-          <span class="clink-value">/in/ritesh-indore</span>
-        </div>
-        <span class="clink-arrow">→</span>
-      </a>
-
-      <a href="https://github.com/Riteshhhh22" target="_blank" rel="noopener" class="clink">
-        <div class="clink-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.05-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016 0C17.14 4.55 18.15 4.87 18.15 4.87c.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22 0 1.61-.01 2.9-.01 3.29 0 .32.22.7.83.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        </div>
-        <div class="clink-text">
-          <span class="clink-label">GitHub</span>
-          <span class="clink-value">/Riteshhhh22</span>
-        </div>
-        <span class="clink-arrow">→</span>
-      </a>
-
-      <a href="https://www.unimad.ai/resume/riteshindore" target="_blank" rel="noopener" class="clink">
-        <div class="clink-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <div class="clink-text">
-          <span class="clink-label">Resume</span>
-          <span class="clink-value">View full resume</span>
-        </div>
-        <span class="clink-arrow">→</span>
-      </a>
-
-      <a href="https://calendly.com/riteshindore225/30min" target="_blank" rel="noopener" class="clink">
-        <div class="clink-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        </div>
-        <div class="clink-text">
-          <span class="clink-label">Schedule</span>
-          <span class="clink-value">Book a 30-min call</span>
-        </div>
-        <span class="clink-arrow">→</span>
-      </a>
+    <div>
+      <a href="mailto:riteshindore225@gmail.com" class="clink"><div class="ico"><svg class="i s18"><use href="#mail"/></svg></div><div><span class="clink-l">Email</span><span class="clink-v">riteshindore225@gmail.com</span></div><span class="arrow">→</span></a>
+      <a href="tel:+353899445604" class="clink"><div class="ico"><svg class="i s18"><use href="#phone"/></svg></div><div><span class="clink-l">Phone</span><span class="clink-v">+353 89 944 5604</span></div><span class="arrow">→</span></a>
+      <a href="https://www.linkedin.com/in/ritesh-indore" target="_blank" rel="noopener" class="clink"><div class="ico"><svg class="i f s18"><use href="#li"/></svg></div><div><span class="clink-l">LinkedIn</span><span class="clink-v">/in/ritesh-indore</span></div><span class="arrow">→</span></a>
+      <a href="https://github.com/Riteshhhh22" target="_blank" rel="noopener" class="clink"><div class="ico"><svg class="i f s18"><use href="#gh"/></svg></div><div><span class="clink-l">GitHub</span><span class="clink-v">/Riteshhhh22</span></div><span class="arrow">→</span></a>
+      <a href="https://www.unimad.ai/resume/riteshindore" target="_blank" rel="noopener" class="clink"><div class="ico"><svg class="i s18"><use href="#file"/></svg></div><div><span class="clink-l">Resume</span><span class="clink-v">View full resume</span></div><span class="arrow">→</span></a>
+      <a href="https://calendly.com/riteshindore225/30min" target="_blank" rel="noopener" class="clink"><div class="ico"><svg class="i s18"><use href="#cal"/></svg></div><div><span class="clink-l">Schedule</span><span class="clink-v">Book a 30-min call</span></div><span class="arrow">→</span></a>
     </div>
   </div>
 </section>
 
 <footer>
   <div>© 2026 Ritesh Indore. Built with care in Dublin, Ireland.</div>
-  <div class="right">
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </div>
+  <div class="r"><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
 </footer>
 
+<script>
+(function(){
+  var d='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/',s='https://cdn.simpleicons.org/';
+  var L=[['AWS',d+'amazonwebservices/amazonwebservices-plain-wordmark.svg'],['Azure',d+'azure/azure-original.svg'],['Splunk',s+'splunk/000000'],['Fortinet',s+'fortinet/EE3124'],['Wireshark',s+'wireshark/1679A7'],['Datadog',s+'datadog/632CA6'],['Burp Suite',s+'burpsuite/FF6633'],['Docker',s+'docker/2496ED'],['Linux',s+'linux/000000'],['Python',s+'python/3776AB'],['Kali',s+'kalilinux/557C94'],['CompTIA',s+'comptia/C8202F']];
+  var h='';L.forEach(function(x){h+='<div class="logo-item"><img src="'+x[1]+'" alt="'+x[0]+'" loading="lazy"><span>'+x[0]+'</span></div>';});
+  document.getElementById('logos').innerHTML=h;
+})();
+</script>
 </body>
 </html>
