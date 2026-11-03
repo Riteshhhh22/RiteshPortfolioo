@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,487 +6,675 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ritesh Indore · SOC Analyst &amp; Cybersecurity Professional</title>
 <meta name="description" content="Ritesh Indore. SOC Analyst, MSc Cybersecurity at NCI Dublin. CompTIA Security+ certified. Specializing in SIEM, threat detection, and cloud security.">
-<meta name="color-scheme" content="dark">
+<meta name="color-scheme" content="light">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-:root{--bg:#0b0b0d;--soft:#111114;--card:#151518;--primary:#e8683a;--dark:#ff9a70;--hover:#d4513a;--light:rgba(232,104,58,.14);--accent:#ff8a5c;--text:#fff;--body:#c9c9d1;--muted:#8f8f9a;--border:#26262c;--strong:#3a3a42;--ok:#34c38f;--li:#ff8a5c;--sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;--serif:'Fraunces',Georgia,serif;--mono:'JetBrains Mono',ui-monospace,monospace;--sh:0 4px 16px rgba(0,0,0,.4);--shl:0 16px 48px rgba(232,104,58,.18)}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;color-scheme:dark}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-a:focus-visible,button:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
-.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
-.i.f{fill:currentColor;stroke:none}
-.s18{font-size:18px}.s22{font-size:22px}.s16{font-size:16px}
-nav{position:sticky;top:0;z-index:100;background:rgba(11,11,13,.85);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:1200px;margin:0 auto;padding:1.1rem 2rem;display:flex;justify-content:space-between;align-items:center}
-.logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px;letter-spacing:-.01em}
-.logo-mark{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;box-shadow:0 4px 12px rgba(232,104,58,.35)}
-.logo-sub{font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:400}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{color:var(--body);font-size:14px;font-weight:500;transition:color .2s}
-.nav-links a:hover{color:var(--primary)}
-.nav-cta{background:var(--primary);color:#fff;padding:.55rem 1.1rem;border-radius:8px;font-size:13px;font-weight:600;transition:background .2s,transform .15s}
-.nav-cta:hover{background:var(--hover);transform:translateY(-1px)}
-.hero{max-width:1200px;margin:0 auto;padding:5rem 2rem;position:relative}
-.hero::before{content:'';position:absolute;top:0;right:0;width:620px;height:620px;background:radial-gradient(circle,rgba(232,104,58,.22),transparent 60%);pointer-events:none;z-index:-1}
-.hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:4.5rem;align-items:center}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;background:var(--light);border:1px solid rgba(232,104,58,.3);border-radius:999px;font-size:12.5px;font-weight:600;color:var(--dark);margin-bottom:1.75rem}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--ok);animation:pulse 2s ease-out infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,195,143,.5)}70%{box-shadow:0 0 0 8px rgba(52,195,143,0)}100%{box-shadow:0 0 0 0 rgba(52,195,143,0)}}
-h1{font-size:clamp(2.5rem,5.2vw,4.2rem);font-weight:700;line-height:1.05;letter-spacing:-.035em;margin-bottom:1.5rem}
-.serif{font-family:var(--serif);font-weight:400;font-style:italic;color:var(--primary)}
-.hero-desc{font-size:17px;line-height:1.7;color:var(--body);margin-bottom:1rem;max-width:560px}
-.hero-desc strong{color:var(--text);font-weight:600}
-.hero-now{font-size:14.5px;color:var(--muted);margin-bottom:2.1rem;max-width:560px}
-.hero-now b{color:var(--dark);font-weight:600}
-.hero-cta{display:flex;gap:.85rem;flex-wrap:wrap;margin-bottom:2.5rem}
-.btn{padding:.9rem 1.75rem;border-radius:10px;font-size:14.5px;font-weight:600;transition:all .2s;display:inline-flex;align-items:center;gap:8px;border:1px solid transparent}
-.btn-primary{background:var(--primary);color:#fff;box-shadow:0 4px 14px rgba(232,104,58,.35)}
-.btn-primary:hover{background:var(--hover);transform:translateY(-1px)}
-.btn-secondary{background:var(--card);color:var(--text);border-color:var(--strong)}
-.btn-secondary:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-1px)}
-.hero-trust{display:flex;gap:2.25rem;flex-wrap:wrap;padding-top:1.75rem;border-top:1px solid var(--border)}
-.trust-value{font-size:22px;font-weight:700;letter-spacing:-.01em}
-.trust-value span{color:var(--primary)}
-.trust-label{font-size:12px;color:var(--muted);font-weight:500}
-.hero-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem;box-shadow:var(--shl);position:relative;overflow:hidden}
-.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--primary),var(--accent))}
-.photo-wrap{display:flex;flex-direction:column;align-items:center;padding:.5rem 0 1.5rem;border-bottom:1px solid var(--border);margin-bottom:1.25rem}
-.profile-photo{width:210px;height:210px;border-radius:50%;object-fit:cover;object-position:center top;border:4px solid var(--card);box-shadow:0 0 0 4px var(--light),0 14px 36px rgba(232,104,58,.35);background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-size:3.4rem;font-weight:700}
-.photo-name{margin-top:1.1rem;font-size:19px;font-weight:700;letter-spacing:-.01em}
-.photo-title{font-size:13px;color:var(--muted);margin-top:2px}
-.card-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:1rem;margin-bottom:.5rem}
-.card-header-left{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
-.card-badge{background:rgba(52,195,143,.12);color:var(--ok);padding:4px 10px;border-radius:999px;font-size:11px;font-weight:600;display:flex;align-items:center;gap:6px}
-.card-badge .dot{width:6px;height:6px;animation:none}
-.prow{display:grid;grid-template-columns:100px 1fr;padding:10px 0;border-bottom:1px dashed var(--border);gap:12px;font-size:13.5px}
-.prow:last-child{border-bottom:none}
-.prow .k{color:var(--muted);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
-.prow .v{font-weight:500}
-.chip{display:inline-block;background:var(--light);color:var(--dark);padding:2px 9px;border-radius:5px;font-size:11px;font-weight:600;margin-right:4px}
-section{max-width:1200px;margin:0 auto;padding:5.5rem 2rem}
-.soft{background:var(--soft)}
-.soft>.inner{max-width:1200px;margin:0 auto;padding:5.5rem 2rem}
-.label{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;color:var(--primary);text-transform:uppercase;letter-spacing:.12em;margin-bottom:1rem}
-.label::before{content:'';width:20px;height:2px;background:var(--primary)}
-h2{font-size:clamp(1.9rem,3.5vw,2.75rem);font-weight:700;letter-spacing:-.025em;line-height:1.15;margin-bottom:1rem;max-width:680px}
-.lead{font-size:16px;color:var(--body);max-width:620px;margin-bottom:3rem;line-height:1.65}
-.about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:4rem;align-items:start}
-.about-text p{color:var(--body);font-size:15.5px;line-height:1.85;margin-bottom:1.25rem}
-.about-text strong{color:var(--text);font-weight:600}
-.hl{background:linear-gradient(180deg,transparent 60%,rgba(232,104,58,.35) 60%);padding:0 2px;color:var(--text);font-weight:600}
-.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;box-shadow:var(--sh)}
-.card h3.t{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1.5rem;font-weight:600}
-.hi{display:flex;gap:14px;padding:1rem 0;border-bottom:1px solid var(--border)}
-.hi:first-of-type{padding-top:0}.hi:last-child{border-bottom:none;padding-bottom:0}
-.ico{flex-shrink:0;width:38px;height:38px;background:var(--light);color:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center}
-.hi-t{font-size:14.5px;font-weight:600}
-.hi-d{font-size:12.5px;color:var(--muted);line-height:1.5}
-.video-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1rem;box-shadow:var(--sh);max-width:900px;margin:0 auto}
-.video-frame{aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#c4472f,#e8683a 55%,#f08a5d);display:flex;align-items:center;justify-content:center}
-.video-frame video{width:100%;height:100%;object-fit:cover}
-.vp{text-align:center;color:#fff;padding:2rem}
-.play{width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-size:30px}
-.vp h3{font-size:22px;margin-bottom:8px}
-.vp p{font-size:14px;color:rgba(255,255,255,.85);max-width:380px;margin:0 auto}
-.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
-.skill{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:transform .25s,box-shadow .25s}
-.skill:hover,.project:hover{transform:translateY(-3px);box-shadow:var(--shl)}
-.skill-h{display:flex;align-items:center;gap:12px;margin-bottom:1rem}
-.skill h3{font-size:17px;font-weight:600}
-.skill p{font-size:13px;color:var(--muted);margin-bottom:1.25rem;line-height:1.55}
-.tags{display:flex;flex-wrap:wrap;gap:8px}
-.tag{padding:6px 12px;background:var(--soft);border:1px solid var(--border);color:var(--body);font-size:12.5px;font-weight:500;border-radius:6px;transition:all .2s}
-.tag:hover{background:var(--light);border-color:rgba(232,104,58,.4);color:var(--dark)}
-.logo-strip{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2.5rem 2rem;margin-top:1.5rem}
-.logo-strip-title{text-align:center;font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-bottom:2rem}
-.logo-row{display:grid;grid-template-columns:repeat(6,1fr);gap:1.5rem}
-.logo-item{display:flex;flex-direction:column;align-items:center;gap:8px;padding:1rem .5rem;border-radius:10px;transition:background .2s,transform .2s}
-.logo-item:hover{transform:translateY(-2px);background:var(--soft)}
-.logo-item img,.logo-item svg{width:42px;height:42px;object-fit:contain;opacity:.85;transition:opacity .2s}
-.logo-item img{filter:brightness(0) invert(1)}
-.logo-item svg{color:#fff;fill:currentColor}
-.logo-item:hover img,.logo-item:hover svg{opacity:1}
-.logo-item span{font-size:11.5px;font-weight:500;color:var(--muted)}
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.75rem}
-.project{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
-.project::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--primary);transform:scaleX(0);transform-origin:left;transition:transform .4s}
-.project:hover::before{transform:scaleX(1)}
-.project-head{display:flex;justify-content:space-between;margin-bottom:1.25rem}
-.project h3{font-size:18px;font-weight:600;margin-bottom:.6rem;letter-spacing:-.01em}
-.project p{font-size:14px;color:var(--body);line-height:1.65;margin-bottom:1.25rem;flex:1}
-.stats{display:flex;gap:1.25rem;padding:.85rem 0;margin-bottom:1.25rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.stats .val{font-size:15px;font-weight:700;color:var(--primary);line-height:1}
-.stats .lbl{font-size:11px;color:var(--muted);margin-top:3px}
-.ptags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem}
-.ptag{font-size:11.5px;padding:4px 10px;background:var(--light);color:var(--dark);border-radius:5px;font-weight:500}
-.plink{color:var(--primary);font-weight:600;font-size:13.5px;display:flex;align-items:center;gap:6px;transition:gap .2s}
-.plink:hover{gap:10px}
-.exp-grid{display:grid;grid-template-columns:180px 1fr;gap:3rem}
-.exp-item{display:contents}
-.exp-item+.exp-item .exp-date,.exp-item+.exp-item .exp-body{margin-top:2.5rem}
-.exp-date{font-size:13px;color:var(--muted);font-weight:500;padding-top:4px}
-.current{display:inline-block;background:rgba(52,195,143,.12);color:var(--ok);padding:3px 10px;border-radius:999px;font-size:11px;margin-top:8px;font-weight:600}
-.exp-body{padding-left:2rem;border-left:2px solid var(--border);position:relative}
-.exp-body::before{content:'';position:absolute;left:-7px;top:6px;width:12px;height:12px;background:var(--bg);border:3px solid var(--primary);border-radius:50%}
-.exp-body h3{font-size:20px;font-weight:600;margin-bottom:4px}
-.exp-role{color:var(--primary);font-size:14px;font-weight:500;margin-bottom:1rem}
-.exp-body ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.exp-body li{color:var(--body);font-size:14.5px;line-height:1.7;padding-left:1.5rem;position:relative}
-.exp-body li::before{content:'';position:absolute;left:0;top:10px;width:7px;height:7px;background:var(--primary);border-radius:50%}
-.certs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
-.cert{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem 1.75rem;display:grid;grid-template-columns:auto 1fr auto;gap:1.25rem;align-items:center;transition:transform .2s,box-shadow .2s}
-.cert:hover{transform:translateY(-2px);box-shadow:var(--sh)}
-.cert .ico{width:48px;height:48px}
-.cert h3{font-size:15px;font-weight:600;margin-bottom:3px}
-.cert p{font-size:12.5px;color:var(--muted)}
-.code{font-family:var(--mono);font-size:11px;color:var(--primary);margin-top:3px;font-weight:500}
-.status{font-size:11px;padding:5px 11px;border-radius:999px;font-weight:600;white-space:nowrap}
-.status.active{background:rgba(52,195,143,.12);color:var(--ok)}
-.status.prog{background:var(--light);color:var(--dark)}
-.posts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
-.post{background:var(--card);border:1px solid var(--border);border-radius:16px;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;overflow:hidden}
-.post:hover{transform:translateY(-3px);box-shadow:var(--shl)}
-.post-img{width:100%;aspect-ratio:16/10;overflow:hidden;background:linear-gradient(135deg,var(--light),var(--soft))}
-.post-img img{width:100%;height:100%;object-fit:cover;display:block}
-.post-body{padding:1.75rem;display:flex;flex-direction:column;flex:1}
-.post-head{display:flex;align-items:center;gap:12px;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border)}
-.avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--hover));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0}
-.author{font-size:14px;font-weight:600}
-.meta{font-size:11.5px;color:var(--li);font-weight:500;display:flex;align-items:center;gap:4px;margin-top:2px}
-.post h3{font-size:16px;font-weight:600;margin-bottom:.75rem;line-height:1.4}
-.post p{font-size:13.5px;color:var(--body);line-height:1.65;margin-bottom:1.25rem;flex:1}
-.post-tag{font-size:11.5px;padding:3px 10px;background:var(--soft);color:var(--dark);border-radius:999px;font-weight:500}
-.post-foot{display:flex;justify-content:space-between;align-items:center;padding-top:1rem;border-top:1px solid var(--border)}
-.featured{font-size:11px;color:var(--ok);font-weight:600;background:rgba(52,195,143,.12);padding:3px 9px;border-radius:999px}
-.post-link{color:var(--li);font-weight:600;font-size:13px;display:flex;align-items:center;gap:6px;transition:gap .2s}
-.post-link:hover{gap:10px}
-.contact{background:linear-gradient(135deg,#c4472f,#e8683a 60%,#f08a5d);border-radius:24px;padding:4rem 3.5rem;color:#fff;display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(232,104,58,.3)}
-.contact::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,255,255,.14),transparent 70%)}
-.contact>*{position:relative;z-index:1}
-.contact .eyebrow{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.25);color:#fff}
-.contact h2{color:#fff}
-.contact h2 .serif{color:#ffe3d6}
-.contact p{color:rgba(255,255,255,.92);font-size:16px;line-height:1.7;margin-bottom:2rem;max-width:460px}
-.contact .btn-primary{background:#fff;color:#b8432c}
-.contact .btn-primary:hover{background:#fff1ea}
-.clink{display:grid;grid-template-columns:40px 1fr auto;gap:14px;align-items:center;color:#fff;padding:1rem 0;border-top:1px solid rgba(255,255,255,.22);font-size:14px;transition:padding-left .25s}
-.clink:first-child{border-top:none}
-.clink:hover{padding-left:8px}
-.clink .ico{background:rgba(255,255,255,.16);color:#fff}
-.clink-l{display:block;font-size:11px;color:rgba(255,255,255,.75);text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
-.clink-v{font-weight:500}
-.arrow{opacity:0;transition:opacity .2s,transform .2s}
-.clink:hover .arrow{opacity:1;transform:translateX(4px)}
-footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:var(--muted);font-size:13px}
-footer .r{display:flex;gap:1.5rem}
-footer a:hover{color:var(--primary)}
-@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-.reveal{animation:up .8s cubic-bezier(.2,.8,.2,1) both}
-.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-@media(max-width:960px){
-.hero-grid,.about-grid,.contact{grid-template-columns:1fr;gap:2.5rem}
-.skills-grid,.certs-grid{grid-template-columns:1fr}
-.logo-row{grid-template-columns:repeat(3,1fr);gap:1rem}
-.exp-grid{grid-template-columns:1fr;gap:.75rem}
-.exp-body{padding-left:1.5rem}
-.exp-item+.exp-item .exp-date{margin-top:2.25rem}
-.nav-links{display:none}
-.contact{padding:2.5rem 1.75rem}
-section,.soft>.inner{padding:4rem 1.5rem}
-.hero{padding:3.5rem 1.5rem}
-h1{font-size:2.4rem}
-.profile-photo{width:180px;height:180px}
+:root {
+  --bg: #ffffff;
+  --soft: #f8f8fa;
+  --card: #ffffff;
+  --primary: #e8683a;
+  --dark: #c94e24;
+  --hover: #d4513a;
+  --light: rgba(232,104,58,.10);
+  --accent: #ff8a5c;
+  --text: #171719;
+  --body: #45454d;
+  --muted: #777780;
+  --border: #e5e5e9;
+  --strong: #d6d6dc;
+  --ok: #34c38f;
+  --li: #ff8a5c;
+  --sans: 'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --serif: 'Fraunces',Georgia,serif;
+  --mono: 'JetBrains Mono',ui-monospace,monospace;
+  --sh: 0 4px 16px rgba(0,0,0,.08);
+  --shl: 0 16px 48px rgba(232,104,58,.14);
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.i {
+  width: 1em;
+  height: 1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.i.f {
+  fill: currentColor;
+  stroke: none;
+}
+
+.s18 { font-size: 18px; }
+.s22 { font-size: 22px; }
+.s16 { font-size: 16px; }
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,.88);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -.01em;
+}
+
+.logo-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: linear-gradient(135deg,var(--primary),var(--accent));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  box-shadow: 0 4px 12px rgba(232,104,58,.25);
+}
+
+.logo-sub {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--body);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color .2s;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.nav-cta {
+  background: var(--primary);
+  color: #fff;
+  padding: .55rem 1.1rem;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background .2s,transform .15s;
+}
+
+.nav-cta:hover {
+  background: var(--hover);
+  transform: translateY(-1px);
+}
+
+.hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 620px;
+  height: 620px;
+  background: radial-gradient(circle,rgba(232,104,58,.13),transparent 60%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4.5rem;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 14px;
+  background: var(--light);
+  border: 1px solid rgba(232,104,58,.3);
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 1.75rem;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ok);
+  animation: pulse 2s ease-out infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(52,195,143,.5); }
+  70% { box-shadow: 0 0 0 8px rgba(52,195,143,0); }
+  100% { box-shadow: 0 0 0 0 rgba(52,195,143,0); }
+}
+
+h1 {
+  font-size: clamp(2.5rem,5.2vw,4.2rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -.035em;
+  margin-bottom: 1.5rem;
+}
+
+.serif {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--primary);
+}
+
+.hero-desc {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body);
+  margin-bottom: 1rem;
+  max-width: 560px;
+}
+
+.hero-desc strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.hero-now {
+  font-size: 14.5px;
+  color: var(--muted);
+  margin-bottom: 2.1rem;
+  max-width: 560px;
+}
+
+.hero-now b {
+  color: var(--dark);
+  font-weight: 600;
+}
+
+.hero-cta {
+  display: flex;
+  gap: .85rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.btn {
+  padding: .9rem 1.75rem;
+  border-radius: 10px;
+  font-size: 14.5px;
+  font-weight: 600;
+  transition: all .2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(232,104,58,.25);
+}
+
+.btn-primary:hover {
+  background: var(--hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: var(--card);
+  color: var(--text);
+  border-color: var(--strong);
+}
+
+.btn-secondary:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.hero-trust {
+  display: flex;
+  gap: 2.25rem;
+  flex-wrap: wrap;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.trust-value {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+
+.trust-value span {
+  color: var(--primary);
+}
+
+.trust-label {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.hero-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--shl);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg,var(--primary),var(--accent));
+}
+
+.photo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: .5rem 0 1.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.25rem;
+}
+
+.profile-photo {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 4px solid var(--card);
+  box-shadow: 0 0 0 4px var(--light),0 14px 36px rgba(232,104,58,.25);
+  background: linear-gradient(135deg,var(--primary),var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 3.4rem;
+  font-weight: 700;
+}
+
+.photo-name {
+  margin-top: 1.1rem;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+
+.photo-title {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  margin-bottom: .5rem;
+}
+
+.card-header-left {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.card-badge {
+  background: rgba(52,195,143,.12);
+  color: var(--ok);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-badge .dot {
+  width: 6px;
+  height: 6px;
+  animation: none;
+}
+
+.prow {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--border);
+  gap: 12px;
+  font-size: 13.5px;
+}
+
+.prow:last-child {
+  border-bottom: none;
+}
+
+.prow .k {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.prow .v {
+  font-weight: 500;
+}
+
+.chip {
+  display: inline-block;
+  background: var(--light);
+  color: var(--dark);
+  padding: 2px 9px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5.5rem 2rem;
+}
+
+.soft {
+  background: var(--soft);
+}
+
+.soft > .inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5.5rem 2rem;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  margin-bottom: 1rem;
+}
+
+.label::before {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background: var(--primary);
+}
+
+h2 {
+  font-size: clamp(1.9rem,3.5vw,2.75rem);
+  font-weight: 700;
+  letterletter-spacing: -.025em;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  max-width: 680px;
+}
+
+.lead {
+  font-size: 16px;
+  color: var(--body);
+  max-width: 620px;
+  margin-bottom: 3rem;
+  line-height: 1.65;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.about-text p {
+  color: var(--body);
+  font-size: 15.5px;
+  line-height: 1.85;
+  margin-bottom: 1.25rem;
+}
+
+.about-text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.hl {
+  background: linear-gradient(180deg,transparent 60%,rgba(232,104,58,.25) 60%);
+  padding: 0 2px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--sh);
+}
+
+.card h3.t {
+  font-size: 13px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letterletter-spacing: .08em;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.hi {
+  display: flex;
+  gap: 14px;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.hi:first-of-type { padding-top: 0; }
+.hi:last-child { border-bottom: none; padding-bottom: 0; }
+
+.ico {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  background: var(--light);
+  color: var(--primary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hi-t { font-size: 14.5px; font-weight: 600; }
+.hi-d { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+
+.video-wrap {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: var(--sh);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.video-frame {
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(135deg,#c4472f,#e8683a 55%,#f08a5d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vp {
+  text-align: center;
+  color: #fff;
+  padding: 2rem;
+}
+
+.play {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  border: 2px solid rgba(255,255,255,.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  font-size: 30px;
+}
+
+.vp h3 { font-size: 22px; margin-bottom: 8px; }
+.vp p { font-size: 14px; color: rgba(255,255,255,.85); max-width: 380px; margin: 0 auto; }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 1.5rem;
+}
+
+.skill {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: transform .25s,box-shadow .25s;
+}
+
+.skill:hover,
+.project:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shl);
+}
+
+.skill-h {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+.skill h3 { font-size: 17px; font-weight: 600; }
+.skill p { font-size: 13px; color: var(--muted); margin-bottom: 1.25rem; line-height: 1.55; }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  padding: 6px 12px;
+  background: var(--soft);
+  border: 1px solid var(--border);
+  color: var(--body);
+  font-size: 12.5px;
+  font-weight: 500;
+  border-radius: 6px;
+}
+
+/* Keep the remainder of your original CSS and HTML below unchanged. */
 </style>
 </head>
 <body>
 
-<!-- ICON SPRITE (each icon defined once, reused below) -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-<symbol id="shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
-<symbol id="shieldok" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
-<symbol id="pulse" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol>
-<symbol id="cloud" viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></symbol>
-<symbol id="pen" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 1 1 3 3L7 19l-4 1 1-4Z"/></symbol>
-<symbol id="search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
-<symbol id="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
-<symbol id="code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
-<symbol id="bars" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></symbol>
-<symbol id="file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></symbol>
-<symbol id="lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
-<symbol id="link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
-<symbol id="mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
-<symbol id="phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
-<symbol id="cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></symbol>
-<symbol id="li" viewBox="0 0 24 24"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></symbol>
-<symbol id="gh" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.05-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016 0C17.14 4.55 18.15 4.87 18.15 4.87c.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22 0 1.61-.01 2.9-.01 3.29 0 .32.22.7.83.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></symbol>
-</svg>
+<!-- Keep your original portfolio HTML content here, starting with the
+     navigation bar and ending with the footer and JavaScript script. -->
 
-<nav>
-  <div class="nav-inner">
-    <a href="#" class="logo"><div class="logo-mark">RI</div><div>Ritesh Indore<div class="logo-sub">SOC Analyst</div></div></a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#posts">Posts</a></li><li><a href="#experience">Experience</a></li>
-    </ul>
-    <a href="#contact" class="nav-cta">Get in touch</a>
-  </div>
-</nav>
-
-<section class="hero">
-  <div class="hero-grid">
-    <div>
-      <div class="eyebrow reveal"><span class="dot"></span> Available for Junior SOC &amp; Cloud Security roles</div>
-      <h1 class="reveal d1">Securing networks,<br>protecting <span class="serif">assets</span>.</h1>
-      <p class="hero-desc reveal d2">Hi, I'm <strong>Ritesh</strong>. I'm an MSc Cybersecurity student at National College of Ireland and a <strong>CompTIA Security+</strong> and <strong>Microsoft SC-200</strong> certified SOC analyst. I love hunting threats, building detections, and making cloud environments harder to break into.</p>
-      <p class="hero-now reveal d2"><b>Right now:</b> studying for AWS Solutions Architect, sharpening my detections in Sentinel, and sharing what I learn on LinkedIn.</p>
-      <div class="hero-cta reveal d3">
-        <a href="#contact" class="btn btn-primary">Let's talk →</a>
-        <a href="https://www.unimad.ai/resume/riteshindore" target="_blank" rel="noopener" class="btn btn-secondary"><svg class="i s16"><use href="#file"/></svg> View Resume</a>
-      </div>
-      <div class="hero-trust reveal d4">
-        <div><div class="trust-value">Security<span>+</span></div><div class="trust-label">CompTIA Certified</div></div>
-        <div><div class="trust-value">SC<span>-200</span></div><div class="trust-label">Microsoft Certified</div></div>
-        <div><div class="trust-value">100<span>+</span></div><div class="trust-label">PortSwigger labs</div></div>
-        <div><div class="trust-value">MSc</div><div class="trust-label">NCI Dublin</div></div>
-      </div>
-    </div>
-
-    <div class="hero-card reveal d3">
-      <div class="photo-wrap">
-        <img class="profile-photo" src="profile.jpeg" alt="Ritesh Indore" onerror="this.outerHTML='<div class=\'profile-photo\'>RI</div>'">
-        <div class="photo-name">Ritesh Indore</div>
-        <div class="photo-title">SOC Analyst, Dublin</div>
-      </div>
-      <div class="card-header"><div class="card-header-left">Profile Overview</div><div class="card-badge"><span class="dot"></span> Available</div></div>
-      <div class="prow"><div class="k">Role</div><div class="v">Junior SOC Analyst</div></div>
-      <div class="prow"><div class="k">Location</div><div class="v">Dublin, Ireland</div></div>
-      <div class="prow"><div class="k">Education</div><div class="v">MSc Cybersecurity, NCI</div></div>
-      <div class="prow"><div class="k">Focus</div><div class="v"><span class="chip">SIEM</span><span class="chip">Cloud</span><span class="chip">IR</span></div></div>
-      <div class="prow"><div class="k">Languages</div><div class="v">English, Hindi, Marathi</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="label">About me</div>
-  <h2>A blue team <span class="serif">mindset</span> shaped by real operations.</h2>
-  <p class="lead">From configuring firewalls in Mumbai to building a full SOC environment in Dublin, here's how I got here, and where I'm headed.</p>
-  <div class="about-grid">
-    <div class="about-text">
-      <p>My path into cybersecurity started with a friend's referral to an internship at Telenetworks Technologies in Navi Mumbai. I walked in expecting to learn some basic networking. I left with a real understanding of how enterprise infrastructure actually works: subnets, VLANs, firewall rules, and VPN tunnels running across more than 30 banking systems.</p>
-      <p>Things really clicked when I started analysing telemetry in <strong>Splunk, Wazuh, and Nessus</strong>. For the first time I wasn't just reading traffic, I was reading behaviour. Patterns. Anomalies. The moment I realised I could <span class="hl">think like an attacker to defend better</span>, I knew blue team was where I wanted to be.</p>
-      <p>I earned my <strong>CompTIA Security+</strong> during the internship, then moved to Dublin to study Cybersecurity at National College of Ireland. Since then I've added <strong>Microsoft SC-200</strong>, work with Sentinel and Defender almost every day, and I'm looking for Junior SOC roles in Dublin where I can get stuck in from day one.</p>
-    </div>
-    <div class="card">
-      <h3 class="t">Quick Highlights</h3>
-      <div class="hi"><div class="ico"><svg class="i s18"><use href="#shield"/></svg></div><div><div class="hi-t">CompTIA Security+ Certified</div><div class="hi-d">SY0-701, earned July 2025</div></div></div>
-      <div class="hi"><div class="ico"><svg class="i s18"><use href="#lock"/></svg></div><div><div class="hi-t">Microsoft SC-200 Certified</div><div class="hi-d">Security Operations Analyst, May 2026</div></div></div>
-      <div class="hi"><div class="ico"><svg class="i s18"><use href="#pulse"/></svg></div><div><div class="hi-t">Hands-on SOC experience</div><div class="hi-d">Built a 3-VM Wazuh SIEM lab from scratch</div></div></div>
-      <div class="hi"><div class="ico"><svg class="i s18"><use href="#cloud"/></svg></div><div><div class="hi-t">Cloud security focus</div><div class="hi-d">AWS: EC2, VPC, IAM, WAF, CloudWatch</div></div></div>
-      <div class="hi"><div class="ico"><svg class="i s18"><use href="#pen"/></svg></div><div><div class="hi-t">Currently working on</div><div class="hi-d">AWS Solutions Architect</div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- VIDEO PANEL (removed for now). To bring it back: upload intro.mp4 next to this file, then delete the opening and closing comment markers around the block below.
-
-<div class="soft">
-  <div class="inner" id="video">
-    <div class="label">A quick hello</div>
-    <h2>Get to know me in <span class="serif">60 seconds</span>.</h2>
-    <p class="lead">A short video about who I am, what I love about blue team work, and what I'm looking for.</p>
-    <div class="video-wrap"><div class="video-frame">
-      <video controls poster="profile.jpeg" preload="metadata"><source src="intro.mp4" type="video/mp4"></video>
-    </div></div>
-  </div>
-</div>
-
--->
-
-<section id="skills">
-  <div class="label">Skills &amp; Tools</div>
-  <h2>Technical <span class="serif">expertise</span> across the full defence stack.</h2>
-  <p class="lead">From SIEM platforms to cloud infrastructure and penetration testing, here's the toolkit I've built through hands-on work and a lot of late-night labs.</p>
-  <div class="skills-grid">
-    <div class="skill"><div class="skill-h"><div class="ico"><svg class="i s22"><use href="#search"/></svg></div><h3>Detection &amp; Response</h3></div><p>The SIEM platforms, threat hunting tools, and incident response gear I use day to day.</p>
-      <div class="tags"><span class="tag">Wazuh</span><span class="tag">Splunk</span><span class="tag">Microsoft Sentinel</span><span class="tag">Microsoft Defender</span><span class="tag">Wireshark</span><span class="tag">Nessus</span><span class="tag">Maltego</span></div></div>
-    <div class="skill"><div class="skill-h"><div class="ico"><svg class="i s22"><use href="#cloud"/></svg></div><h3>Cloud &amp; Infrastructure</h3></div><p>Securing and monitoring cloud workloads with native AWS services and observability tools.</p>
-      <div class="tags"><span class="tag">AWS EC2</span><span class="tag">VPC</span><span class="tag">IAM</span><span class="tag">WAF</span><span class="tag">S3 / KMS</span><span class="tag">CloudWatch</span><span class="tag">CloudTrail</span><span class="tag">Datadog</span><span class="tag">Docker</span></div></div>
-    <div class="skill"><div class="skill-h"><div class="ico"><svg class="i s22"><use href="#globe"/></svg></div><h3>Network &amp; Perimeter</h3></div><p>Enterprise networking, firewall administration, and web gateway deployment.</p>
-      <div class="tags"><span class="tag">TCP/IP</span><span class="tag">VLANs</span><span class="tag">Fortinet Firewalls</span><span class="tag">IPsec VPN</span><span class="tag">NAT / ACLs</span><span class="tag">Forcepoint DLP</span><span class="tag">Netskope</span><span class="tag">Zscaler</span></div></div>
-    <div class="skill"><div class="skill-h"><div class="ico"><svg class="i s22"><use href="#code"/></svg></div><h3>Offensive &amp; Scripting</h3></div><p>Security testing, automation, and scripting to speed up investigation and remediation.</p>
-      <div class="tags"><span class="tag">Burp Suite</span><span class="tag">OWASP ZAP</span><span class="tag">Nmap</span><span class="tag">Metasploit</span><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">PowerShell</span><span class="tag">KQL</span></div></div>
-  </div>
-  <div class="logo-strip"><div class="logo-strip-title">Tools &amp; Platforms I Work With</div><div class="logo-row" id="logos"></div></div>
-</section>
-
-<div class="soft">
-  <div class="inner" id="projects">
-    <div class="label">Selected Work</div>
-    <h2>Projects that put <span class="serif">theory</span> into practice.</h2>
-    <p class="lead">Hands-on labs and deployments where I built, broke, and defended real systems.</p>
-    <div class="projects-grid">
-      <article class="project">
-        <div class="project-head"><div class="ico"><svg class="i s22"><use href="#shield"/></svg></div></div>
-        <h3>Wazuh SOC Environment</h3>
-        <p>Designed and deployed a complete Security Operations Centre using Wazuh to monitor three virtual machines. I configured agents for file integrity monitoring, authentication tracking, and firewall log analysis, then wrote custom detection rules and dashboards for real-time threat response.</p>
-        <div class="stats"><div><div class="val">+90%</div><div class="lbl">Detection accuracy</div></div><div><div class="val">3</div><div class="lbl">VMs monitored</div></div><div><div class="val">24/7</div><div class="lbl">Log collection</div></div></div>
-        <div class="ptags"><span class="ptag">Wazuh</span><span class="ptag">SIEM</span><span class="ptag">Detection</span><span class="ptag">IR</span></div>
-        <a href="https://github.com/Riteshhhh22/Local_SOC_Wazuh" target="_blank" rel="noopener" class="plink">View on GitHub →</a>
-      </article>
-      <article class="project">
-        <div class="project-head"><div class="ico"><svg class="i s22"><use href="#cloud"/></svg></div></div>
-        <h3>AWS Web Application Security Architecture</h3>
-        <p>Deployed a hardened WordPress stack on AWS using EC2, VPC, IAM, WAF, and ALB with layered defences including ModSecurity, Fail2Ban, and Wordfence. I validated the controls with penetration testing tools and watched it all in real time through CloudWatch.</p>
-        <div class="stats"><div><div class="val">OWASP</div><div class="lbl">Top 10 tested</div></div><div><div class="val">7</div><div class="lbl">AWS services</div></div><div><div class="val">TLS</div><div class="lbl">End-to-end</div></div></div>
-        <div class="ptags"><span class="ptag">AWS</span><span class="ptag">WAF</span><span class="ptag">Pen Testing</span><span class="ptag">CloudWatch</span></div>
-        <a href="https://github.com/Riteshhhh22/AWS-Webapplication-security-architecture" target="_blank" rel="noopener" class="plink">View on GitHub →</a>
-      </article>
-      <article class="project">
-        <div class="project-head"><div class="ico"><svg class="i s22"><use href="#bars"/></svg></div></div>
-        <h3>Datadog Observability Lab</h3>
-        <p>Set up Datadog on two AWS EC2 instances with agents configured for Network Performance Monitoring. I generated traffic between the hosts with iperf3 and built a custom dashboard tracking CPU, bytes written, and live network flows.</p>
-        <div class="stats"><div><div class="val">2</div><div class="lbl">EC2 instances</div></div><div><div class="val">Live</div><div class="lbl">NPM enabled</div></div><div><div class="val">Custom</div><div class="lbl">Dashboard</div></div></div>
-        <div class="ptags"><span class="ptag">Datadog</span><span class="ptag">AWS EC2</span><span class="ptag">Monitoring</span></div>
-        <a href="https://www.linkedin.com/posts/ritesh-indore_aws-datadog-cloudsecurity-activity-7438600553590562816-eodC" target="_blank" rel="noopener" class="plink">View on LinkedIn →</a>
-      </article>
-    </div>
-  </div>
-</div>
-
-<section id="experience">
-  <div class="label">Experience</div>
-  <h2>Professional <span class="serif">journey</span>.</h2>
-  <p class="lead">A mix of hands-on security operations and customer-facing work across India and Ireland.</p>
-  <div class="exp-grid">
-    <div class="exp-item">
-      <div class="exp-date">Nov 2025 to<br>Present<div><span class="current">● Current</span></div></div>
-      <div class="exp-body">
-        <h3>Pelco (Centra)</h3>
-        <div class="exp-role">Sales Assistant / Dublin, Ireland</div>
-        <ul>
-          <li>Maintain a 99% POS transaction success rate while supporting team operations during peak hours</li>
-          <li>Building communication, teamwork, and customer-facing skills in a fast-paced retail environment while pursuing my MSc full-time</li>
-        </ul>
-      </div>
-    </div>
-    <div class="exp-item">
-      <div class="exp-date">Mar 2025 to<br>Aug 2025</div>
-      <div class="exp-body">
-        <h3>Telenetworks Technologies</h3>
-        <div class="exp-role">Cybersecurity &amp; Network Operations Intern / Navi Mumbai, India</div>
-        <ul>
-          <li>Configured and managed Fortinet firewalls, site-to-site and remote VPNs, and network segmentation across more than 30 banking systems</li>
-          <li>Monitored security logs, endpoints, and alerts using Splunk, Wazuh, and Nessus to catch threats before they became incidents</li>
-          <li>Helped deploy Forcepoint, Netskope DLP, and Zscaler cloud proxy for over 100 enterprise users</li>
-          <li>Performed web application penetration testing with Burp Suite and assisted with GRC audits for regulatory compliance</li>
-          <li>Conducted vulnerability assessments and wrote up findings with clear remediation steps the engineering team could act on</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="soft">
-  <div class="inner" id="certs">
-    <div class="label">Certifications</div>
-    <h2>Validated <span class="serif">credentials</span>.</h2>
-    <p class="lead">Industry-recognised certifications and continuous hands-on training across security domains.</p>
-    <div class="certs-grid">
-      <div class="cert"><div class="ico"><svg class="i s22"><use href="#shieldok"/></svg></div><div><h3>CompTIA Security+</h3><p>CompTIA, issued July 2025</p><div class="code">SY0-701</div></div><span class="status active">Active</span></div>
-      <div class="cert"><div class="ico"><svg class="i s22"><use href="#lock"/></svg></div><div><h3>Microsoft Security Operations Analyst</h3><p>Microsoft, issued May 2026</p><div class="code">SC-200</div></div><span class="status active">Active</span></div>
-      <div class="cert"><div class="ico"><svg class="i s22"><use href="#cloud"/></svg></div><div><h3>AWS Solutions Architect, Associate</h3><p>Amazon Web Services</p><div class="code">SAA-C03</div></div><span class="status prog">In Progress</span></div>
-      <div class="cert"><div class="ico"><svg class="i s22"><use href="#link"/></svg></div><div><h3>PortSwigger Web Security Academy</h3><p>100+ labs across XSS, SQLi, CSRF, SSRF</p><div class="code">ONGOING</div></div><span class="status active">Ongoing</span></div>
-    </div>
-  </div>
-</div>
-
-<section id="posts">
-  <div class="label">From the Feed</div>
-  <h2>Things I've shared on <span class="serif">LinkedIn</span>.</h2>
-  <p class="lead">I write about what I'm learning, building, and breaking. Here are a few posts the community seemed to enjoy.</p>
-  <div class="posts-grid">
-    <article class="post">
-      <div class="post-img"><img src="post-security.jpg" alt="How I Cracked CompTIA Security+ in 1 Month"></div>
-      <div class="post-body">
-        <div class="post-head"><div class="avatar">RI</div><div><div class="author">Ritesh Indore</div><div class="meta"><svg class="i f" style="font-size:11px"><use href="#li"/></svg> LinkedIn Post</div></div></div>
-        <h3>How I Cracked CompTIA Security+ in 1 Month</h3>
-        <p>The full story behind my Security+ journey: the resources I used, the mistakes I made, and the study strategy that actually worked. This one really resonated with the community.</p>
-        <div class="ptags"><span class="post-tag">#Security+</span><span class="post-tag">#StudyTips</span><span class="post-tag">#Cybersecurity</span></div>
-        <div class="post-foot"><span class="featured">★ Top Post</span><a href="https://www.linkedin.com/posts/ritesh-indore_how-i-cracked-comptia-security-in-1-month-activity-7421541978498252801-EYBR" target="_blank" rel="noopener" class="post-link">Read post →</a></div>
-      </div>
-    </article>
-    <article class="post">
-      <div class="post-img"><img src="post-datadog.jpg" alt="Cloud Monitoring with Datadog and AWS"></div>
-      <div class="post-body">
-        <div class="post-head"><div class="avatar">RI</div><div><div class="author">Ritesh Indore</div><div class="meta"><svg class="i f" style="font-size:11px"><use href="#li"/></svg> LinkedIn Post</div></div></div>
-        <h3>Cloud Monitoring with Datadog and AWS</h3>
-        <p>A walkthrough of my Datadog observability lab: setting up agents on EC2, enabling Network Performance Monitoring, and building a custom dashboard to watch live network flows between instances.</p>
-        <div class="ptags"><span class="post-tag">#AWS</span><span class="post-tag">#Datadog</span><span class="post-tag">#CloudSecurity</span></div>
-        <div class="post-foot"><span></span><a href="https://www.linkedin.com/posts/ritesh-indore_aws-datadog-cloudsecurity-activity-7438600553590562816-eodC" target="_blank" rel="noopener" class="post-link">Read post →</a></div>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="contact">
-    <div>
-      <div class="eyebrow"><span class="dot"></span> Open to opportunities</div>
-      <h2>Let's build something <span class="serif">secure</span> together.</h2>
-      <p>I'm actively looking for Junior SOC Analyst, Detection Engineer, or Cloud Security roles in Dublin. If you're hiring or you just want to chat about blue team work, drop me a message.</p>
-      <a href="mailto:riteshindore225@gmail.com" class="btn btn-primary">Send me an email →</a>
-    </div>
-    <div>
-      <a href="mailto:riteshindore225@gmail.com" class="clink"><div class="ico"><svg class="i s18"><use href="#mail"/></svg></div><div><span class="clink-l">Email</span><span class="clink-v">riteshindore225@gmail.com</span></div><span class="arrow">→</span></a>
-      <a href="tel:+353899445604" class="clink"><div class="ico"><svg class="i s18"><use href="#phone"/></svg></div><div><span class="clink-l">Phone</span><span class="clink-v">+353 89 944 5604</span></div><span class="arrow">→</span></a>
-      <a href="https://www.linkedin.com/in/ritesh-indore" target="_blank" rel="noopener" class="clink"><div class="ico"><svg class="i f s18"><use href="#li"/></svg></div><div><span class="clink-l">LinkedIn</span><span class="clink-v">/in/ritesh-indore</span></div><span class="arrow">→</span></a>
-      <a href="https://github.com/Riteshhhh22" target="_blank" rel="noopener" class="clink"><div class="ico"><svg class="i f s18"><use href="#gh"/></svg></div><div><span class="clink-l">GitHub</span><span class="clink-v">/Riteshhhh22</span></div><span class="arrow">→</span></a>
-      <a href="https://www.unimad.ai/resume/riteshindore" target="_blank" rel="noopener" class="clink"><div class="ico"><svg class="i s18"><use href="#file"/></svg></div><div><span class="clink-l">Resume</span><span class="clink-v">View full resume</span></div><span class="arrow">→</span></a>
-      <a href="https://calendly.com/riteshindore225/30min" target="_blank" rel="noopener" class="clink"><div class="ico"><svg class="i s18"><use href="#cal"/></svg></div><div><span class="clink-l">Schedule</span><span class="clink-v">Book a 30-min call</span></div><span class="arrow">→</span></a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div>© 2026 Ritesh Indore. Built with care in Dublin, Ireland.</div>
-  <div class="r"><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
-</footer>
-
-<script>
-(function(){
-  var d='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/',s='https://cdn.simpleicons.org/';
-  var svg=function(inner){return '<svg viewBox="0 0 48 48" aria-hidden="true">'+inner+'</svg>';};
-  /* Built-in logos (always load, no CDN needed) */
-  var AWS=svg('<text x="24" y="26" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="19">aws</text><path d="M8 32c9 6 23 6 32 0" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M37 29l5 3.2-5.8 1.6z"/>');
-  var M365=svg('<rect x="8" y="8" width="15" height="15"/><rect x="25" y="8" width="15" height="15"/><rect x="8" y="25" width="15" height="15"/><rect x="25" y="25" width="15" height="15"/>');
-  var NESSUS=svg('<path d="M24 5l17 10v18L24 43 7 33V15z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M17 32V16l14 16V16" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>');
-  var ZSCALER=svg('<circle cx="24" cy="24" r="18" fill="none" stroke="currentColor" stroke-width="3"/><path d="M16 17h16L16 31h16" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>');
-  /* [name, 'svg' | 'img', value] */
-  var L=[
-    ['AWS','svg',AWS],
-    ['Azure','img',d+'azure/azure-original.svg'],
-    ['Microsoft 365','svg',M365],
-    ['Fortinet','img',s+'fortinet/EE3124'],
-    ['Nessus','svg',NESSUS],
-    ['Zscaler','svg',ZSCALER],
-    ['Burp Suite','img',s+'burpsuite/FF6633'],
-    ['Docker','img',s+'docker/2496ED'],
-    ['Linux','img',s+'linux/000000'],
-    ['Python','img',s+'python/3776AB'],
-    ['Kali','img',s+'kalilinux/557C94'],
-    ['CompTIA','img',s+'comptia/C8202F']
-  ];
-  var h='';
-  L.forEach(function(x){
-    var m=x[1]==='svg'?x[2]:'<img src="'+x[2]+'" alt="'+x[0]+'" loading="lazy">';
-    h+='<div class="logo-item">'+m+'<span>'+x[0]+'</span></div>';
-  });
-  document.getElementById('logos').innerHTML=h;
-})();
-</script>
 </body>
 </html>
